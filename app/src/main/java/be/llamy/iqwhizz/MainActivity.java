@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
                         toast = "Pseudo et mot de passe requis.";
                         break;
                     case 1:
+                        /* TODO if case = 1, send the user to the ProfilActivity by using an Intent
+                        Intent profil = new Intent(this, ProfilActivity.getClass());
+                        startActivity(profil);
+                        finish();*/
                         toast = "Bienvenue " + userName.getText();
                         break;
                     case -1:
@@ -42,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /* TODO : Integration with the database and check if credentials are wrong, if not, then return 1 */
 
     private int checkUserCredentials(){
         if(userName.getText().length() < this.PSEUDO_MIN_LENGTH || userPassword.getText().length() < this.PASSWORD_MIN_LENGTH) return 0;
