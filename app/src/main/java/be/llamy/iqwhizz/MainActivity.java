@@ -9,6 +9,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    /** This is just a prototype of the login page, not definitive at all
+        TODO : Use a MVC architecture to build the project ?
+
+        I added Room's dependencies to the build.gradle in order to link the database
+        Do you want to use SQLite's API instead ? It's much more time-eater and buggy
+     */
+
     final int PSEUDO_MIN_LENGTH = 5, PASSWORD_MIN_LENGTH = 8;
     EditText userName;
     EditText userPassword;
@@ -31,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                         toast = "Pseudo et mot de passe requis.";
                         break;
                     case 1:
-                        /* TODO if case = 1, send the user to the ProfilActivity by using an Intent
+                        /* TODO Send the user to the ProfilActivity (use an Intent)
                         Intent profil = new Intent(this, ProfilActivity.getClass());
                         startActivity(profil);
                         finish();*/
@@ -47,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /* TODO : Integration with the database and check if credentials are wrong, if not, then return 1 */
+    /* TODO : Integration with the database and check if credentials are wrong, if not then return 1 */
 
     private int checkUserCredentials(){
         if(userName.getText().length() < this.PSEUDO_MIN_LENGTH || userPassword.getText().length() < this.PASSWORD_MIN_LENGTH) return 0;
