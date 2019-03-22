@@ -5,19 +5,19 @@ import java.util.List;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-import be.llamy.iqwhizz.Database.Table.UserTable;
+import be.llamy.iqwhizz.Database.Table.User;
 
 @Dao
 public interface UserDao {
 
     @Query("SELECT * FROM USERS WHERE username LIKE :username")
-    UserTable findByName(String username);
+    User findByName(String username);
 
     @Query("SELECT * FROM USERS WHERE 1")
-    List<UserTable> getAllUsers();
+    List<User> getAllUsers();
 
     @Insert
-    public void registerUser(UserTable user);
+    public void registerUser(User user);
 
 }
 

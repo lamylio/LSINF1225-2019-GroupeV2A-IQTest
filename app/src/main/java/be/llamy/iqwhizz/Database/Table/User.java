@@ -1,10 +1,22 @@
 package be.llamy.iqwhizz.Database.Table;
 
+import android.util.Log;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 
 @Entity(tableName = "USERS", primaryKeys = {"username"})
-public class UserTable {
+public class User {
+
+    public User(){}
+
+    public User(String username, String hashedpassword){
+        setUsername(username);
+        setPassword(hashedpassword);
+    }
 
     @NonNull
     private String username;
@@ -14,6 +26,19 @@ public class UserTable {
     private boolean gender;
     private String city;
     private int age;
+
+    public static String hashPassword(String password){
+
+        MessageDigest digest;
+        try {
+            digest = MessageDigest.getInstance("SHA-256");
+            return new String(digest.digest(password.getBytes()));
+        }catch (NoSuchAlgorithmException e){
+            Log.e("IQW/User", e.getMessage());
+        }
+        return null;
+    }
+
 
 
     @NonNull
@@ -31,7 +56,7 @@ public class UserTable {
     }
 
     public void setPassword(@NonNull String password) {
-        this.password = password;
+        this.password = hashPassword(password);
     }
 
     public boolean isGender() {
