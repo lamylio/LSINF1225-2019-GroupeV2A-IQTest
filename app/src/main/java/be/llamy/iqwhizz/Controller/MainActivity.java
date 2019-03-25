@@ -1,5 +1,6 @@
 package be.llamy.iqwhizz.Controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText userName;
     EditText userPassword;;
+
+    TextView loginRegisterButton;
     TextView loginMessage;
     Button loginButton;
 
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         userName = (EditText) findViewById(R.id.login_pseudoBox);
         userPassword = (EditText) findViewById(R.id.login_passwordBox);
         loginMessage = (TextView) findViewById(R.id.login_message);
+        loginRegisterButton = (TextView) findViewById(R.id.login_registerButton);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
                     checkUserCredentials(userName.getText().toString(), userPassword.getText().toString());
                     loginMessage.setText(toast);
                 }
+            }
+        });
+
+        loginRegisterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent register = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(register);
+                finish();
             }
         });
     }
@@ -78,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }else {toast = "Mot de passe incorrect.";}
                 }else{toast = "Utilisateur introuvable dans la base de donnée";}
-                Log.d("IQW-Main", toast);
+                Log.d("IQW/Main", toast);
             }
         }).start();
     }

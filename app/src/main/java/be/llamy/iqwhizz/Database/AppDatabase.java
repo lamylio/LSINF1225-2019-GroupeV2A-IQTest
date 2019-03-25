@@ -29,7 +29,7 @@ public abstract class AppDatabase extends RoomDatabase{
             @Override
             public void onOpen (@NonNull SupportSQLiteDatabase db){
                 super.onOpen(db);
-                Log.i("DB", NAME + " :: onOpen");
+                Log.i("IQW/AppDatabase", NAME + " :: onOpen");
             }
         };
 }

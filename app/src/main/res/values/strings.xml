@@ -5,4 +5,8 @@
     <string name="password">Mot de passe</string>
     <string name="login_subtitle">Connecte-toi</string>
     <string name="login_button">Connexion</string>
+    <string name="login_registerButton">Pas encore de compte ? Clique ici !</string>
+
+    <string name="register_subtitle">Inscris-toi</string>
+    <string name="register_button">Inscription</string>
 </resources>
