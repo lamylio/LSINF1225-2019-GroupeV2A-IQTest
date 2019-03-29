@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "be.llamy.iqwhizz"
+        applicationId "be.uclouvain.lsinf1225.groupev2a.iqtest"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1

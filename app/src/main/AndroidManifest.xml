@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="be.llamy.iqwhizz">
+    package="be.uclouvain.lsinf1225.groupev2a.iqtest">
 
     <application
         android:allowBackup="true"
@@ -11,13 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Controller.MainActivity">
+        <activity android:name="be.uclouvain.lsinf1225.groupev2a.iqtest.Controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/app_name" android:name=".Controller.RegisterActivity"/>
+        <activity
+            android:name="be.uclouvain.lsinf1225.groupev2a.iqtest.Controller.RegisterActivity"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

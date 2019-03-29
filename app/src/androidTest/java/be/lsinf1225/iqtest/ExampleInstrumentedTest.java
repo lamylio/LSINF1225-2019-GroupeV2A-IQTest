@@ -1,4 +1,4 @@
-package be.llamy.iqwhizz;
+package be.lsinf1225.iqtest;
 
 import android.content.Context;
 
