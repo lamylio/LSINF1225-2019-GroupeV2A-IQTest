@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     TextView loginMessage;
     Button loginButton;
 
-    String toast;
+    static String toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    String toast;
                     User logUser = AppDatabase.INSTANCE.userDao().findByName(loginUsername.getText().toString());
 
                     /** User found in the database **/
@@ -71,16 +70,21 @@ public class MainActivity extends AppCompatActivity {
                              finish();
                              **/
 
-                            toast = "Bienvenue " + logUser.getUsername();
+                            MainActivity.toast = getResources().getText(R.string.WELCOME) + logUser.getUsername();
 
                         } else {
-                            toast = getResources().getText(R.string.INVALID_PASSWORD).toString();
+                            MainActivity.toast = getResources().getText(R.string.INVALID_PASSWORD).toString();
                         }
                     } else {
-                        toast = getResources().getText(R.string.INVALID_USER).toString();
+                        MainActivity.toast = getResources().getText(R.string.INVALID_USER).toString();
                     }
-                    Log.d("IQW/Main", toast);
-                    loginMessage.setText(toast);
+                    Log.d("IQW/Main", MainActivity.toast);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Utils.gimmeToast(getApplicationContext(), MainActivity.toast);
+                        }
+                    });
                 }
             }).start();
         }
