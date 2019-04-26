@@ -22,9 +22,9 @@ public class User {
     public User() {
     }
 
-    public User(String username, String hashedpassword) {
+    public User(String username, String password) {
         setUsername(username);
-        setPassword(hashedpassword);
+        setPassword(hashPassword(password));
     }
 
     public static String hashPassword(String password) {
@@ -55,7 +55,7 @@ public class User {
     }
 
     public void setPassword(@NonNull String password) {
-        this.password = hashPassword(password);
+        this.password = password;
     }
 
     public boolean isGender() {

@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
                     /** User found in the database **/
                     if (logUser != null) {
-                        if (User.hashPassword(loginPassword.getText().toString()) == logUser.getPassword()) {
+                        if (User.hashPassword(loginPassword.getText().toString()).equals(logUser.getPassword())) {
 
                             /** TODO Send the user to the ProfileActivity (use an Intent)**/
                              Intent profile = new Intent(getApplicationContext(), ProfileActivity.class);
