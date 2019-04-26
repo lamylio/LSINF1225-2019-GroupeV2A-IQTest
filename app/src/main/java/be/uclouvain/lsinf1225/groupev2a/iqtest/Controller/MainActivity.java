@@ -63,12 +63,11 @@ public class MainActivity extends AppCompatActivity {
                     if (logUser != null) {
                         if (User.hashPassword(loginPassword.getText().toString()) == logUser.getPassword()) {
 
-                            /**
-                             TODO Send the user to the ProfileActivity (use an Intent)
-                             Intent profile = new Intent(this, ProfileActivity.getClass());
+                            /** TODO Send the user to the ProfileActivity (use an Intent)**/
+                             Intent profile = new Intent(getApplicationContext(), ProfileActivity.class);
                              startActivity(profile);
                              finish();
-                             **/
+
 
                             MainActivity.toast = getResources().getText(R.string.WELCOME) + logUser.getUsername();
 
