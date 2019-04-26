@@ -1,4 +1,4 @@
-package be.llamy.iqwhizz.Database.Table;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table;
 
 import android.util.Log;
 
@@ -11,34 +11,33 @@ import androidx.room.Entity;
 @Entity(tableName = "USERS", primaryKeys = {"username"})
 public class User {
 
-    public User(){}
-
-    public User(String username, String hashedpassword){
-        setUsername(username);
-        setPassword(hashedpassword);
-    }
-
     @NonNull
     private String username;
     @NonNull
     private String password;
-
     private boolean gender;
     private String city;
     private int age;
 
-    public static String hashPassword(String password){
+    public User() {
+    }
+
+    public User(String username, String hashedpassword) {
+        setUsername(username);
+        setPassword(hashedpassword);
+    }
+
+    public static String hashPassword(String password) {
 
         MessageDigest digest;
         try {
             digest = MessageDigest.getInstance("SHA-256");
             return new String(digest.digest(password.getBytes()));
-        }catch (NoSuchAlgorithmException e){
+        } catch (NoSuchAlgorithmException e) {
             Log.e("IQW/User", e.getMessage());
         }
         return null;
     }
-
 
 
     @NonNull

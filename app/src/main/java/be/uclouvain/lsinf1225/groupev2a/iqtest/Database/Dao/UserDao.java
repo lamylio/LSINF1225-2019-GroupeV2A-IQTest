@@ -1,11 +1,11 @@
-package be.llamy.iqwhizz.Database.Dao;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Dao;
 
 import java.util.List;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-import be.llamy.iqwhizz.Database.Table.User;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
 
 @Dao
 public interface UserDao {
@@ -17,7 +17,7 @@ public interface UserDao {
     List<User> getAllUsers();
 
     @Insert
-    public void registerUser(User user);
+    void registerUser(User user);
 
 }
 
