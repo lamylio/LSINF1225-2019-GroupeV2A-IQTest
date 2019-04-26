@@ -20,7 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText registerUsername;
     EditText registerPassword;
     EditText registerCity;
-    EditText registerBirtdate;
+    EditText registerBirthdate;
 
     Button registerButton;
     Button registerBackButton;
@@ -33,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerUsername = findViewById(R.id.register_username);
         registerPassword = findViewById(R.id.register_password);
         registerCity = findViewById(R.id.register_city);
-        registerBirtdate = findViewById(R.id.register_birthdate);
+        registerBirthdate = findViewById(R.id.register_birthdate);
 
         registerButton = findViewById(R.id.register_button);
         registerBackButton = findViewById(R.id.register_backButton);
