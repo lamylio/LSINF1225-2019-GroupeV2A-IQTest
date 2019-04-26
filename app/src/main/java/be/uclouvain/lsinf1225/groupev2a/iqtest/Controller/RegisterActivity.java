@@ -1,5 +1,6 @@
 package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText registerBirtdate;
 
     Button registerButton;
+    Button registerBackButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +34,16 @@ public class RegisterActivity extends AppCompatActivity {
         registerBirtdate = findViewById(R.id.register_birthdate);
 
         registerButton = findViewById(R.id.register_button);
+        registerBackButton = findViewById(R.id.register_backButton);
+
+        registerBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent main = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(main);
+                finish();
+            }
+        });
     }
 
     public void checkUserRegisterInfos(View v) {
