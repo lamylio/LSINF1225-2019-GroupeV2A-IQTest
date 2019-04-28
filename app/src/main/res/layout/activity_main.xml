@@ -36,7 +36,7 @@
         android:layout_marginRight="8dp"
         android:background="@android:color/white"
         android:ems="10"
-        android:gravity="fill_horizontal|center_vertical"
+        android:gravity="center"
         android:inputType="textPassword"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
