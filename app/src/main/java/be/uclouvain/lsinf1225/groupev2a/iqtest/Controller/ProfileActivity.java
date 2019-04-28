@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.AppDatabase;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
@@ -12,7 +13,7 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    static User loggedUser = null;
+    User loggedUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +23,8 @@ public class ProfileActivity extends AppCompatActivity {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                TextView text = findViewById(R.id.profile_TEST);
-                ProfileActivity.loggedUser = AppDatabase.INSTANCE.userDao().findByName(getIntent().getStringExtra("username"));
+                TextView text = findViewById(R.id.profile_username);
+                loggedUser = AppDatabase.INSTANCE.userDao().findByName(getIntent().getStringExtra("username"));
 
                 if(loggedUser == null){
                     Utils.changeActivity(getApplicationContext(), MainActivity.class);
@@ -31,7 +32,7 @@ public class ProfileActivity extends AppCompatActivity {
                 }
 
                 Utils.sendLog(this.getClass(), "Logged user : " + loggedUser.getUsername());
-                text.setText("Hello " + loggedUser.getUsername());
+                text.setText(loggedUser.getUsername());
             }
         });
     }

@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class Utils {
     public static String toast;
-    public static boolean DEBUG_LOG = true;
+    static boolean DEBUG_LOG = true;
 
     public static void sendLog(Class from, String message){
         if(DEBUG_LOG)Log.d("IQW/"+from.getSimpleName(), message);
@@ -27,6 +27,7 @@ public class Utils {
 
     public static void changeActivity(Context appcontext, Class gotoActivity){
         Intent intent = new Intent(appcontext, gotoActivity);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         appcontext.startActivity(intent);
     }
 

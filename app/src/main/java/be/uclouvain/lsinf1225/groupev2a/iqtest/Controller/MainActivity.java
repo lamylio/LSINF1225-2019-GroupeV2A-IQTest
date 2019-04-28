@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.AppDatabase;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /** Initialize the database **/
+        /* Initialize the database **/
         AppDatabase.setup(this.getApplicationContext());
 
         loginButton = findViewById(R.id.login_button);
@@ -52,28 +53,28 @@ public class MainActivity extends AppCompatActivity {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    /** Try to find the username in the database **/
+                    /* Try to find the username in the database */
                     User logUser = AppDatabase.INSTANCE.userDao().findByName(loginUsername.getText().toString());
 
-                    /** User found in the database **/
+                    /* User found in the database **/
                     if (logUser != null) {
-                        /* The given password equals the stored one **/
+                        /* The given password equals the stored one */
                         if (User.hashPassword(loginPassword.getText().toString()).equals(logUser.getPassword())) {
 
-                            /** Send the loggedUser to the ProfileActivity **/
+                            /* Send the loggedUser to the ProfileActivity */
                             Intent profile = new Intent(getApplicationContext(), ProfileActivity.class);
                             profile.putExtra("username", logUser.getUsername());
                             startActivity(profile);
                             finish();
 
                             Utils.toast = getResources().getText(R.string.WELCOME) + logUser.getUsername();
-                        /** Password's hash aren't the same **/
+                        /* Password's hash aren't the same */
                         } else {Utils.toast = getResources().getText(R.string.INVALID_PASSWORD).toString();}
-                    /** User not found **/
+                    /* User not found **/
                     } else {Utils.toast = getResources().getText(R.string.INVALID_USER).toString();}
 
-                    /** I decided to store the toast and send the message afterward
-                     * But I could have used gimmeToast directly each time **/
+                    /* I decided to store the toast and send the message afterward
+                     * But I could have used gimmeToast directly each time */
                     Utils.sendLog(this.getClass(), Utils.toast);
                     Utils.gimmeToast(getApplicationContext());
                 }
