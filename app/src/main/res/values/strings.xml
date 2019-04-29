@@ -34,4 +34,12 @@
     <string name="category_mode">CATEGORIES</string>
     <string name="multiplayer_mode">AFFRONTER UN AMI</string>
 
+    <!-- CategoryActivity -->
+    <string name="cat0">Catégories</string>
+    <string name="cat1">Culture générale</string>
+    <string name="cat3">Mathématiques</string>
+    <string name="cat2">Sciences</string>
+    <string name="cat4">Puzzle</string>
+    <string name="cat5">Géographie</string>
+
 </resources>
