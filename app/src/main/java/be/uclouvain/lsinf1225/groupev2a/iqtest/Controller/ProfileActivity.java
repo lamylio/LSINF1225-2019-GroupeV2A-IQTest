@@ -2,6 +2,7 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,5 +36,10 @@ public class ProfileActivity extends AppCompatActivity {
                 text.setText(loggedUser.getUsername());
             }
         });
+    }
+
+    public void onClickPlayButton(View view){
+
+        setContentView(R.layout.activity_choosemode);
     }
 }
