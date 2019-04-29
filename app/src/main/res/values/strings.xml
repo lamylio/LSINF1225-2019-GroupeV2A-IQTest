@@ -27,4 +27,9 @@
     <string name="profile_history">Historique</string>
     <string name="profile_settings">Paramètres</string>
 
+    <string name="normal_mode">PARTIE NORMALE</string>
+    <string name="speed_mode">PARTIE RAPIDE</string>
+    <string name="category_mode">PARTIE PAR CATEGORIE</string>
+    <string name="multiplayer_mode">AFFRONTE UN AMI</string>
+
 </resources>
