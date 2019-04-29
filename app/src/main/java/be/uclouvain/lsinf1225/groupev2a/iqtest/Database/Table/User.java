@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 
 @Entity(tableName = "USERS", primaryKeys = {"username"})
 public class User {
@@ -22,6 +23,7 @@ public class User {
     public User() {
     }
 
+    @Ignore
     public User(String username, String password) {
         setUsername(username);
         setPassword(hashPassword(password));
@@ -81,4 +83,6 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public boolean exist(){return true;}
 }

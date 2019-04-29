@@ -3,7 +3,6 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,34 +40,41 @@ public class RegisterActivity extends AppCompatActivity {
         registerBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent main = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(main);
-                finish();
+                Utils.changeActivity(getApplicationContext(), MainActivity.class);
             }
         });
     }
 
     public void checkUserRegisterInfos(View v) {
         if (TextUtils.isEmpty(registerUsername.getText()) || TextUtils.isEmpty(registerPassword.getText()))
-            Utils.gimmeToast(getApplicationContext(), getResources().getText(R.string.USERPASS_REQUIRED));
+            Utils.gimmeToast(getApplicationContext(), getResources().getText(R.string.USERPASS_REQUIRED).toString());
         else {
             /** TODO : Verify integrity of the data and register the user in the database **/
 
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Log.d("IQW/RegisterActivity", "Cleared all tables");
-                    AppDatabase.INSTANCE.clearAllTables();
-                    User newUser = new User(registerUsername.getText().toString(), registerPassword.getText().toString());
-                    newUser.setCity(registerCity.getText().toString());
-                    AppDatabase.INSTANCE.userDao().registerUser(newUser);
-                    Log.d("IQW/RegisterActivity", "User created");
+
+                    User check = AppDatabase.INSTANCE.userDao().findByName(registerUsername.getText().toString());
+                    if(check == null){
+                        check = new User(registerUsername.getText().toString(), registerPassword.getText().toString());
+                        check.setCity(registerCity.getText().toString());
+                        AppDatabase.INSTANCE.userDao().registerUser(check);
+
+                        Utils.toast = "Inscription réussie !";
+                        Utils.sendLog(this.getClass(), "User " + check.getUsername() + " created");
+
+                        Intent profil = new Intent(getApplicationContext(), ProfileActivity.class);
+                        profil.putExtra("username", check.getUsername());
+                        startActivity(profil);
+                        finish();
+
+                    }else{
+                        Utils.toast = "Nom d'utilisateur déjà emprunté !";
+                    }
+                    Utils.gimmeToast(getApplicationContext());
                 }
             }).start();
-
-            Utils.gimmeToast(getApplicationContext(), "Inscription réussie ! Veuillez vous connecter.");
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
         }
     }
 
