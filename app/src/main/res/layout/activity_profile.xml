@@ -96,18 +96,18 @@
         android:layout_height="60dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="312dp"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/whiteborder"
         android:onClick="onClickPlayButton"
         android:text="@string/profile_play"
         android:textColor="@android:color/white"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_username" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/profile_buttonHistory"

@@ -40,6 +40,14 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void onClickPlayButton(View view){
 
-        setContentView(R.layout.activity_choosemode);
+        Utils.changeActivity(getApplicationContext(), ChooseModeActivity.class);
+        finish();
     }
+
+    public void onClickBackButton(View view){
+
+        Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
+        finish();
+    }
+
 }
