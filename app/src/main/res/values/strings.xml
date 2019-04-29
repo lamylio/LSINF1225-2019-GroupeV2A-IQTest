@@ -27,8 +27,6 @@
     <string name="profile_history">Historique</string>
     <string name="profile_settings">Paramètres</string>
 
-
-    <!-- ChooseMode -->
     <string name="normal_mode">NORMAL</string>
     <string name="speed_mode">RAPIDE</string>
     <string name="category_mode">CATEGORIES</string>
