@@ -1,24 +1,30 @@
 <resources>
     <string name="app_name">IQWhizz</string>
 
-    <string name="WELCOME">Bienvenue, </string>
+    <string name="WELCOME">Bienvenue</string>
     <string name="USERPASS_REQUIRED">Nom d\'utilisateur et mot de passe requis</string>
     <string name="INVALID_PASSWORD">Mot de passe incorrect</string>
     <string name="INVALID_USER">Utilisateur introuvable</string>
 
     <!-- User common strings -->
-    <string name="username">Pseudo</string>
-    <string name="password" translatable="false">Mot de passe</string>
-    <string name="birthdate">Date de naissance</string>
-    <string name="city">Ville</string>
-    <string name="gender">Sexe</string>
+    <string name="USERNAME">Pseudo</string>
+    <string name="PASSWORD">Mot de passe</string>
+    <string name="BIRTHDATE">Date de naissance</string>
+    <string name="CITY">Ville</string>
+    <string name="GENDER">Sexe</string>
 
     <!-- MainActivity (login) -->
-    <string name="login_subtitle">Bienvenue</string>
+    <string name="login_subtitle">Connecte toi</string>
     <string name="login_button">Connexion</string>
     <string name="login_registerButton">Pas encore de compte ? Clique ici !</string>
 
     <!-- RegisterActivity (register) -->
     <string name="register_subtitle">Création d\'un nouveau compte</string>
     <string name="register_button">Inscription</string>
+    
+    <!-- ProfileActivity (account) -->
+    <string name="profile_play">JOUER</string>
+    <string name="profile_history">Historique</string>
+    <string name="profile_settings">Paramètres</string>
+
 </resources>
