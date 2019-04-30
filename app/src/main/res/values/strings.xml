@@ -10,6 +10,8 @@
     <string name="NOT_LOGGED">Merci de vous (re)connecter</string>
     <string name="SURE_DISCONNECT">Pressez le bouton retour une nouvelle fois pour vous déconnecter</string>
 
+    <string name="logo">logo</string>
+
     <!-- User common strings -->
     <string name="USERNAME">Pseudo</string>
     <string name="PASSWORD">Mot de passe</string>
@@ -21,6 +23,8 @@
     <string name="login_subtitle">Connecte toi</string>
     <string name="login_button">Connexion</string>
     <string name="login_registerButton">Pas encore de compte ? Clique ici !</string>
+    <string name="enter_pseudo">Entrez votre pseudo</string>
+    <string name="enter_password">Entrez votre password</string>
 
     <!-- RegisterActivity (register) -->
     <string name="register_subtitle">Création d\'un nouveau compte</string>
@@ -33,6 +37,7 @@
 
 
     <!-- ChooseMode -->
+    <string name="mode">Mode</string>
     <string name="mode_normal">NORMAL</string>
     <string name="mode_speed">RAPIDE</string>
     <string name="mode_categories">CATEGORIES</string>
@@ -45,5 +50,6 @@
     <string name="category_3">Sciences</string>
     <string name="category_4">Puzzle</string>
     <string name="category_5">Géographie</string>
+    <string name="logo_geo">logo géographie</string>
 
 </resources>
