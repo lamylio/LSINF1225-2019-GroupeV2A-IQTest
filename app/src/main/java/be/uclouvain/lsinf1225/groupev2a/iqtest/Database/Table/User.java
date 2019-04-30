@@ -2,12 +2,12 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table;
 
 import android.util.Log;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 @Entity(tableName = "USERS", primaryKeys = {"username"})
 public class User {
@@ -85,6 +85,5 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
-
-    public boolean exist(){return true;}
+    
 }

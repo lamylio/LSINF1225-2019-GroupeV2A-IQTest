@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.AppDatabase;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
@@ -54,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Utils.toast = "Inscription réussie !";
                         Utils.sendLog(this.getClass(), "User " + check.getUsername() + " created");
 
+                        User.loggedUser = check;
                         Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
                         finish();
 
