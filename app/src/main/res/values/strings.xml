@@ -29,7 +29,7 @@
     <!-- RegisterActivity (register) -->
     <string name="register_subtitle">Création d\'un nouveau compte</string>
     <string name="register_button">Inscription</string>
-    
+
     <!-- ProfileActivity (account) -->
     <string name="profile_play">JOUER</string>
     <string name="profile_history">Historique</string>
@@ -51,5 +51,9 @@
     <string name="category_4">Puzzle</string>
     <string name="category_5">Géographie</string>
     <string name="logo_geo">logo géographie</string>
+
+    <!-- HistoryActivity -->
+    <string name="Historique">Historique</string>
+    <string name="AMIS">AMIS</string>
 
 </resources>

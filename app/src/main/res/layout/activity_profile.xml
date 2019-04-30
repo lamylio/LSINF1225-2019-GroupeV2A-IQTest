@@ -119,6 +119,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/whiteborder"
+        android:onClick="onClickHistoryButton"
         android:text="@string/profile_history"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
