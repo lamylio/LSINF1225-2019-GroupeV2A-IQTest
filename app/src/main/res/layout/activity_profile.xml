@@ -82,6 +82,7 @@
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
         android:background="@drawable/whiteborder"
+        android:onClick="onClickParametersButton"
         android:text="@string/profile_settings"
         android:textAllCaps="false"
         android:textColor="@android:color/white"

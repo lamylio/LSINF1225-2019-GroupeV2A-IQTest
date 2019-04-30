@@ -44,6 +44,9 @@ public class ProfileActivity extends AppCompatActivity {
     public void onClickHistoryButton(View view){
         Utils.changeActivity(getApplicationContext(), HistoryActivity.class);
     }
+    public void onClickParametersButton(View view){
+        Utils.changeActivity(getApplicationContext(), ParametersActivity.class);
+    }
 
     @Override
     protected void onResume() {

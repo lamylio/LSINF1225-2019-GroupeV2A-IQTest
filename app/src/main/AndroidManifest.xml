@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Controller.HistoryActivity"></activity>
+        <activity android:name=".Controller.ParametersActivity"></activity>
+        <activity android:name=".Controller.Parameters" />
+        <activity android:name=".Controller.HistoryActivity" />
         <activity android:name=".Controller.NormalActivity" />
         <activity android:name=".Controller.ChooseModeActivity" />
         <activity android:name=".Controller.ProfileActivity" />
