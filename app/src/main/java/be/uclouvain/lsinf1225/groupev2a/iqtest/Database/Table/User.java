@@ -20,6 +20,8 @@ public class User {
     private String city;
     private int age;
 
+    public static User loggedUser;
+
     public User() {
     }
 
