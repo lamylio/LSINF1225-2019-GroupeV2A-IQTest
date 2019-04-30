@@ -51,9 +51,11 @@
     <string name="category_4">Puzzle</string>
     <string name="category_5">Géographie</string>
     <string name="logo_geo">logo géographie</string>
+    <string name="logo_puzzle">logo puzzle</string>
 
     <!-- HistoryActivity -->
     <string name="Historique">Historique</string>
-    <string name="AMIS">AMIS</string>
+    <string name="Historique_amis">AMIS</string>
+    <string name="Historique_RETOUR">RETOUR</string>
 
 </resources>

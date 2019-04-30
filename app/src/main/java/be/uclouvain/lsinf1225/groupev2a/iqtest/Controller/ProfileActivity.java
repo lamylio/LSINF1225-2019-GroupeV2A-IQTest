@@ -63,6 +63,5 @@ public class ProfileActivity extends AppCompatActivity {
             Utils.changeActivity(getApplicationContext(), MainActivity.class);
             finish();
         }
-
     }
 }
