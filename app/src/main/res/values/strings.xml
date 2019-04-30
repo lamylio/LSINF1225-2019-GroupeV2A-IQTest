@@ -1,10 +1,14 @@
 <resources>
-    <string name="app_name">IQWhizz</string>
+    <string name="APP_NAME">IQWhizz</string>
 
     <string name="WELCOME">Bienvenue</string>
+
     <string name="USERPASS_REQUIRED">Nom d\'utilisateur et mot de passe requis</string>
     <string name="INVALID_PASSWORD">Mot de passe incorrect</string>
     <string name="INVALID_USER">Utilisateur introuvable</string>
+
+    <string name="NOT_LOGGED">Merci de vous (re)connecter</string>
+    <string name="SURE_DISCONNECT">Pressez le bouton retour une nouvelle fois pour vous déconnecter</string>
 
     <!-- User common strings -->
     <string name="USERNAME">Pseudo</string>
@@ -29,17 +33,17 @@
 
 
     <!-- ChooseMode -->
-    <string name="normal_mode">NORMAL</string>
-    <string name="speed_mode">RAPIDE</string>
-    <string name="category_mode">CATEGORIES</string>
-    <string name="multiplayer_mode">AFFRONTER UN AMI</string>
+    <string name="mode_normal">NORMAL</string>
+    <string name="mode_speed">RAPIDE</string>
+    <string name="mode_categories">CATEGORIES</string>
+    <string name="mode_multiplayer">AFFRONTER UN AMI</string>
 
     <!-- CategoryActivity -->
-    <string name="cat0">Catégories</string>
-    <string name="cat1">Culture générale</string>
-    <string name="cat3">Mathématiques</string>
-    <string name="cat2">Sciences</string>
-    <string name="cat4">Puzzle</string>
-    <string name="cat5">Géographie</string>
+    <string name="category_0">Catégories</string>
+    <string name="category_1">Culture générale</string>
+    <string name="category_2">Mathématiques</string>
+    <string name="category_3">Sciences</string>
+    <string name="category_4">Puzzle</string>
+    <string name="category_5">Géographie</string>
 
 </resources>

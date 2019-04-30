@@ -17,7 +17,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/whiteborder"
-        android:text="@string/cat2"
+        android:text="@string/category_3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button10" />
@@ -32,7 +32,7 @@
         android:layout_marginEnd="137dp"
         android:layout_marginRight="137dp"
         android:background="@drawable/whiteborder"
-        android:text="@string/cat3"
+        android:text="@string/category_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button11" />
@@ -47,7 +47,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/whiteborder"
-        android:text="@string/cat4"
+        android:text="@string/category_4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button13" />
@@ -58,7 +58,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/whiteborder"
-        android:text="@string/cat5"
+        android:text="@string/category_5"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button14" />
@@ -69,7 +69,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        android:contentDescription="@string/app_name"
+        android:contentDescription="@string/APP_NAME"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -80,7 +80,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:fontFamily="sans-serif-black"
-        android:text="@string/app_name"
+        android:text="@string/APP_NAME"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimary"
         android:textSize="36sp"
@@ -110,7 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="@string/cat0"
+        android:text="@string/category_0"
         android:textColor="@android:color/white"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -128,7 +128,7 @@
         android:layout_marginEnd="137dp"
         android:layout_marginRight="137dp"
         android:background="@drawable/whiteborder"
-        android:text="@string/cat1"
+        android:text="@string/mode_categories"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
