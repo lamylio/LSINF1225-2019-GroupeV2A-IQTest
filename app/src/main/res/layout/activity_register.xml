@@ -54,7 +54,6 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:autoText="false"
         android:background="@android:color/white"
         android:ems="10"
         android:gravity="center"
@@ -64,7 +63,8 @@
         app:backgroundTint="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_pseudoText2" />
+        app:layout_constraintTop_toBottomOf="@+id/login_pseudoText2"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/register_password"
@@ -83,7 +83,8 @@
         app:backgroundTint="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_pseudoText3" />
+        app:layout_constraintTop_toBottomOf="@+id/login_pseudoText3"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/login_pseudoText2"
@@ -186,7 +187,8 @@
         app:backgroundTint="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_pseudoText4" />
+        app:layout_constraintTop_toBottomOf="@+id/login_pseudoText4"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/register_city"
@@ -205,6 +207,7 @@
         app:backgroundTint="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_pseudoText5" />
+        app:layout_constraintTop_toBottomOf="@+id/login_pseudoText5"
+        android:importantForAutofill="no" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

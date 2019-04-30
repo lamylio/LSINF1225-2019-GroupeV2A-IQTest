@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.Toast;
 
 public class Utils {
@@ -20,7 +21,9 @@ public class Utils {
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {
             public void run() {
-                Toast.makeText(appcontext, message, Toast.LENGTH_SHORT).show();
+               Toast t = Toast.makeText(appcontext, message, Toast.LENGTH_SHORT);
+               t.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM, 0, 100);
+               t.show();
             }
         });
     }

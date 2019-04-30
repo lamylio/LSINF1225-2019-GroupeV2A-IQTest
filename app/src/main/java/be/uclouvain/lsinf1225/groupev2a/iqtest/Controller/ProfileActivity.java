@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import be.uclouvain.lsinf1225.groupev2a.iqtest.Controller.Game.ChooseModeActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;

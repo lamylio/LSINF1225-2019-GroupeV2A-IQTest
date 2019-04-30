@@ -17,7 +17,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif"
-        android:text="@string/Historique"
+        android:text="@string/history"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="45sp"
@@ -66,26 +66,9 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="@string/Historique_amis"
+        android:text="@string/history_friends"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button6"
         app:layout_constraintTop_toBottomOf="@+id/historique" />
 
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="91dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="80dp"
-        android:onClick="onClickBackButton"
-        android:text="@string/Historique_RETOUR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
 </androidx.constraintlayout.widget.ConstraintLayout>

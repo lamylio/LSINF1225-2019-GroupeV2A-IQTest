@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller.Game;
 
 import android.os.Bundle;
 import android.view.View;
@@ -16,9 +16,8 @@ public class ChooseModeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choosemode);
     }
 
-    public void onClickBackButton(View view){
-
-        Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
+    public void onClickCategoriesButton(View view){
+        Utils.changeActivity(getApplicationContext(), CategoryActivity.class);
         finish();
     }
 }
