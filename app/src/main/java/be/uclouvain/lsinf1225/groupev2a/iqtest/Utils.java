@@ -31,6 +31,10 @@ public class Utils {
         appcontext.startActivity(intent);
     }
 
+    /**Méthode pour passer à une autre activité en lui fournissant des informations
+     * @param appcontext getApplicationContext()
+     * @param gotoActivity TheActivity.class
+     * @param extras le nom de l'information suivi d'une virgule et de sa valeur (ex: "username", "Lioche") */
     public static void changeActivity(Context appcontext, Class gotoActivity, String... extras){
         Intent intent = new Intent(appcontext, gotoActivity);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
