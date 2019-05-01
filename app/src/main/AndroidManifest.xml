@@ -11,17 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Controller.ParametersActivity"></activity>
         <activity android:name=".Controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controller.RegisterActivity"/>
+        <activity android:name=".Controller.RegisterActivity" />
         <activity android:name=".Controller.ProfileActivity" />
-
-        <activity android:name=".Controller.HistoryActivity"></activity>
-
+        <activity android:name=".Controller.HistoryActivity" />
         <activity android:name=".Controller.Game.CategoryActivity" />
         <activity android:name=".Controller.Game.NormalActivity" />
         <activity android:name=".Controller.Game.ChooseModeActivity" />
