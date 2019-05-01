@@ -57,5 +57,7 @@
     <string name="history_back">RETOUR</string>
 
     <!-- ParametersActivity -->
+    <string name="volume">Volume</string>
+    <string name="parametres">Paramètres</string>
 
 </resources>
