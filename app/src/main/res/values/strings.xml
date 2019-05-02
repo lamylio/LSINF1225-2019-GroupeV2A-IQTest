@@ -56,4 +56,8 @@
     <string name="history_friends">AMIS</string>
     <string name="history_back">RETOUR</string>
 
+    <!-- SettingsActivity -->
+    <string name="settings_volume">Volume</string>
+    <string name="settings">Paramètres</string>
+
 </resources>

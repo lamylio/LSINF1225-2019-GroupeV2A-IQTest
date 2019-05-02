@@ -21,13 +21,4 @@ public class HistoryActivity extends AppCompatActivity {
         Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
         finish();
     }
-
-    public static class ChooseModeActivity extends AppCompatActivity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_game);
-        }
-    }
 }
