@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller.Game;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.controller.game;
 
 import android.os.Bundle;
 import android.view.View;

@@ -1,12 +1,13 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller;
-
-import androidx.appcompat.app.AppCompatActivity;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user;
 
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.ProfileActivity;
 
 public class HistoryActivity extends AppCompatActivity {
 

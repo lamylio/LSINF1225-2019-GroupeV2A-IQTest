@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -7,10 +7,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Controller.Game.ChooseModeActivity;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.game.ChooseModeActivity;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.HistoryActivity;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.SettingsActivity;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.User;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -47,13 +49,20 @@ public class ProfileActivity extends AppCompatActivity {
         Utils.changeActivity(getApplicationContext(), HistoryActivity.class);
     }
     public void onClickParametersButton(View view){
-        Utils.changeActivity(getApplicationContext(), ParametersActivity.class);
+        Utils.changeActivity(getApplicationContext(), SettingsActivity.class);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         pressed = false;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }
 
     @Override

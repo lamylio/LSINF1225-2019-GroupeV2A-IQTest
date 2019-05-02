@@ -11,20 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Controller.ParametersActivity"></activity>
-        <activity android:name=".Controller.MainActivity">
+        <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controller.RegisterActivity" />
-        <activity android:name=".Controller.ProfileActivity" />
-        <activity android:name=".Controller.HistoryActivity" />
-        <activity android:name=".Controller.Game.CategoryActivity" />
-        <activity android:name=".Controller.Game.NormalActivity" />
-        <activity android:name=".Controller.Game.ChooseModeActivity" />
+        <activity android:name=".controller.RegisterActivity"/>
+        <activity android:name=".controller.ProfileActivity" />
+
+        <activity android:name=".controller.user.HistoryActivity"/>
+        <activity android:name=".controller.user.SettingsActivity"/>
+
+        <activity android:name=".controller.game.CategoryActivity" />
+        <activity android:name=".controller.game.NormalActivity" />
+        <activity android:name=".controller.game.ChooseModeActivity" />
     </application>
 
 </manifest>

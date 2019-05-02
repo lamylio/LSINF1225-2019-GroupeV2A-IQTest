@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.database.table;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

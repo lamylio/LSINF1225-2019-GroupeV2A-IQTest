@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller.Game;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.controller.game;
 
 import android.os.Bundle;
 
@@ -6,15 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 
-public class CategoryActivity extends AppCompatActivity {
+public class NormalActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.activity_normal);
     }
-
-
 }
-
-

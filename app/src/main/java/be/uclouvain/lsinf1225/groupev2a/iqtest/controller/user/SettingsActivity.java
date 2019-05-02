@@ -1,22 +1,17 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user;
 
 import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-import android.view.KeyEvent;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 
 
-public class ParametersActivity extends Activity {
+public class SettingsActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
@@ -34,7 +29,7 @@ public class ParametersActivity extends Activity {
 
     private void initControls() {
         try {
-            volumeSeekbar = (SeekBar) findViewById(R.id.seekBar);
+            volumeSeekbar = findViewById(R.id.seekBar);
             audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
             volumeSeekbar.setMax(audioManager
                     .getStreamMaxVolume(AudioManager.STREAM_MUSIC));
@@ -62,7 +57,7 @@ public class ParametersActivity extends Activity {
         }
     }
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        SeekBar mediaVlmSeekBar = (SeekBar) findViewById(R.id.seekBar);
+        SeekBar mediaVlmSeekBar = findViewById(R.id.seekBar);
         if (keyCode == KeyEvent.KEYCODE_VOLUME_UP)
         {
 

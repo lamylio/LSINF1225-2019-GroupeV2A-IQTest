@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".Controller.ParametersActivity">
+    tools:context=".controller.user.SettingsActivity">
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -27,7 +27,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="#FCFCFC"
-        android:text="@string/volume"
+        android:text="@string/settings_volume"
         app:layout_constraintBottom_toTopOf="@+id/seekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -40,7 +40,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/parametres"
+        android:text="@string/settings"
         android:textColor="#FCFCFC"
         android:textSize="45sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"

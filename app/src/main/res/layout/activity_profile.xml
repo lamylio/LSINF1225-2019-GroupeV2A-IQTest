@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".Controller.ProfileActivity">
+    tools:context=".controller.ProfileActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -83,7 +83,7 @@
         android:layout_marginRight="48dp"
         android:background="@drawable/whiteborder"
         android:onClick="onClickParametersButton"
-        android:text="@string/profile_settings"
+        android:text="@string/settings"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"

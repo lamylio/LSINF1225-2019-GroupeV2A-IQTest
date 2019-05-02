@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="be.uclouvain.lsinf1225.groupev2a.iqtest.Controller.MainActivity">
+    tools:context="be.uclouvain.lsinf1225.groupev2a.iqtest.controller.MainActivity">
 
     <TextView
         android:id="@+id/login_title"

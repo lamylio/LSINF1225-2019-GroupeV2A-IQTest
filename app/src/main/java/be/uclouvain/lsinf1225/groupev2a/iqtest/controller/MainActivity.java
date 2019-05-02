@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,10 +8,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.AppDatabase;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
+
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.AppDatabase;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.User;
 
 public class MainActivity extends AppCompatActivity {
 

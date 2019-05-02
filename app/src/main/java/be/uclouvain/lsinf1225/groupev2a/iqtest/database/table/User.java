@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.database.table;
 
 import android.util.Log;
 
@@ -22,14 +22,15 @@ public class User {
 
     public static User loggedUser;
 
-    public User() {
-    }
-
     @Ignore
     public User(String username, String password) {
         setUsername(username);
         setPassword(hashPassword(password));
     }
+
+    public User(){}
+
+    /* - Useful functions - */
 
     public static String hashPassword(String password) {
 
@@ -38,17 +39,16 @@ public class User {
             digest = MessageDigest.getInstance("SHA-256");
             return new String(digest.digest(password.getBytes()));
         } catch (NoSuchAlgorithmException e) {
-            Log.e("IQW/User", e.getMessage());
+            Log.e("IQW/DB/User", e.getMessage());
         }
-        return null;
+        return password;
     }
 
-
+    /* - Getters & Setters - */
     @NonNull
     public String getUsername() {
         return username;
     }
-
     public void setUsername(@NonNull String username) {
         this.username = username;
     }
@@ -57,7 +57,6 @@ public class User {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(@NonNull String password) {
         this.password = password;
     }
@@ -65,7 +64,6 @@ public class User {
     public boolean isGender() {
         return gender;
     }
-
     public void setGender(boolean gender) {
         this.gender = gender;
     }
@@ -73,7 +71,6 @@ public class User {
     public String getCity() {
         return city;
     }
-
     public void setCity(String city) {
         this.city = city;
     }
@@ -81,7 +78,6 @@ public class User {
     public int getAge() {
         return age;
     }
-
     public void setAge(int age) {
         this.age = age;
     }
