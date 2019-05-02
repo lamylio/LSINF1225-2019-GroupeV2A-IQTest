@@ -1,18 +1,17 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.AppDatabase;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
+
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.AppDatabase;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.User;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -25,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button registerBackButton;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_register);
 
@@ -35,14 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
         registerBirthdate = findViewById(R.id.register_birthdate);
 
         registerButton = findViewById(R.id.register_button);
-        registerBackButton = findViewById(R.id.register_backButton);
-
-        registerBackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Utils.changeActivity(getApplicationContext(), MainActivity.class);
-            }
-        });
     }
 
     public void checkUserRegisterInfos(View v) {
@@ -64,9 +55,8 @@ public class RegisterActivity extends AppCompatActivity {
                         Utils.toast = "Inscription réussie !";
                         Utils.sendLog(this.getClass(), "User " + check.getUsername() + " created");
 
-                        Intent profil = new Intent(getApplicationContext(), ProfileActivity.class);
-                        profil.putExtra("username", check.getUsername());
-                        startActivity(profil);
+                        User.loggedUser = check;
+                        Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
                         finish();
 
                     }else{
@@ -76,6 +66,12 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }).start();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Utils.changeActivity(getApplicationContext(), MainActivity.class);
+        finish();
     }
 
     public void showDatePickerDialog(View v) {

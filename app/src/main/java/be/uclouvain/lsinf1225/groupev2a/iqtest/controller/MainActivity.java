@@ -1,6 +1,5 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Controller;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -10,10 +9,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.AppDatabase;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.AppDatabase;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,12 +61,11 @@ public class MainActivity extends AppCompatActivity {
                         if (User.hashPassword(loginPassword.getText().toString()).equals(logUser.getPassword())) {
 
                             /* Send the loggedUser to the ProfileActivity */
-                            Intent profile = new Intent(getApplicationContext(), ProfileActivity.class);
-                            profile.putExtra("username", logUser.getUsername());
-                            startActivity(profile);
+                            User.loggedUser = logUser;
+                            Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
                             finish();
 
-                            Utils.toast = getResources().getText(R.string.WELCOME) + logUser.getUsername();
+                            Utils.toast = getResources().getText(R.string.WELCOME) + ", " + logUser.getUsername();
                         /* Password's hash aren't the same */
                         } else {Utils.toast = getResources().getText(R.string.INVALID_PASSWORD).toString();}
                     /* User not found **/

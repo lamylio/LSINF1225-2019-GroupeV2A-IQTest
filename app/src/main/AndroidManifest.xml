@@ -5,24 +5,27 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/app_logo_puzzle"
+        android:label="@string/APP_NAME"
+        android:roundIcon="@drawable/app_logo_puzzle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Controller.NormalActivity"></activity>
-        <activity android:name=".Controller.ProfileActivity" />
-        <activity android:name=".Controller.MainActivity">
+        <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Controller.RegisterActivity"
-            android:label="@string/app_name" />
+        <activity android:name=".controller.RegisterActivity"/>
+        <activity android:name=".controller.ProfileActivity" />
+
+        <activity android:name=".controller.user.HistoryActivity"/>
+        <activity android:name=".controller.user.SettingsActivity"/>
+
+        <activity android:name=".controller.game.CategoryActivity" />
+        <activity android:name=".controller.game.NormalActivity" />
+        <activity android:name=".controller.game.ChooseModeActivity" />
     </application>
 
 </manifest>

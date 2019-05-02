@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".Controller.ProfileActivity">
+    tools:context=".controller.ProfileActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -13,7 +13,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        android:contentDescription="@string/app_name"
+        android:contentDescription="@string/APP_NAME"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -24,7 +24,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:fontFamily="sans-serif-black"
-        android:text="@string/app_name"
+        android:text="@string/APP_NAME"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimary"
         android:textSize="36sp"
@@ -82,7 +82,8 @@
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
         android:background="@drawable/whiteborder"
-        android:text="@string/profile_settings"
+        android:onClick="onClickParametersButton"
+        android:text="@string/settings"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
@@ -96,18 +97,18 @@
         android:layout_height="60dp"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="312dp"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/whiteborder"
-        android:onClick="setContentView(R.layout.activity_choosemode)"
+        android:onClick="onClickPlayButton"
         android:text="@string/profile_play"
         android:textColor="@android:color/white"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_username" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/profile_buttonHistory"
@@ -119,6 +120,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/whiteborder"
+        android:onClick="onClickHistoryButton"
         android:text="@string/profile_history"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
@@ -135,10 +137,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:contentDescription="@string/LOGO"
+        android:src="@drawable/app_logo_puzzle"
         app:layout_constraintBottom_toBottomOf="@+id/header_appname"
         app:layout_constraintEnd_toStartOf="@+id/header_appname"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/header_appname"
-        android:src="@drawable/app_logo_puzzle" />
+        app:layout_constraintTop_toTopOf="@+id/header_appname" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

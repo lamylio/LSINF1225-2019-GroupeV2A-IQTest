@@ -1,11 +1,12 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Dao;
-
-import java.util.List;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.database.dao;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
+
+import java.util.List;
+
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.User;
 
 @Dao
 public interface UserDao {

@@ -1,10 +1,16 @@
 <resources>
-    <string name="app_name">IQWhizz</string>
+    <string name="APP_NAME">IQWhizz</string>
+    <string name="LOGO">LOGO</string>
 
     <string name="WELCOME">Bienvenue</string>
+
     <string name="USERPASS_REQUIRED">Nom d\'utilisateur et mot de passe requis</string>
     <string name="INVALID_PASSWORD">Mot de passe incorrect</string>
     <string name="INVALID_USER">Utilisateur introuvable</string>
+
+    <string name="NOT_LOGGED">Merci de vous (re)connecter</string>
+    <string name="SURE_DISCONNECT">Pressez le bouton retour une nouvelle fois pour vous déconnecter</string>
+
 
     <!-- User common strings -->
     <string name="USERNAME">Pseudo</string>
@@ -18,18 +24,40 @@
     <string name="login_button">Connexion</string>
     <string name="login_registerButton">Pas encore de compte ? Clique ici !</string>
 
+    <string name="login_enter_pseudo">Insérez votre pseudo</string>
+    <string name="login_enter_password">Et votre mot de passe</string>
+
     <!-- RegisterActivity (register) -->
     <string name="register_subtitle">Création d\'un nouveau compte</string>
     <string name="register_button">Inscription</string>
-    
+
     <!-- ProfileActivity (account) -->
     <string name="profile_play">JOUER</string>
     <string name="profile_history">Historique</string>
     <string name="profile_settings">Paramètres</string>
 
-    <string name="normal_mode">NORMAL</string>
-    <string name="speed_mode">RAPIDE</string>
-    <string name="category_mode">CATEGORIES</string>
-    <string name="multiplayer_mode">AFFRONTER UN AMI</string>
+    <!-- ChooseMode -->
+    <string name="mode">Mode</string>
+    <string name="mode_normal">NORMAL</string>
+    <string name="mode_speed">RAPIDE</string>
+    <string name="mode_categories">CATEGORIES</string>
+    <string name="mode_multiplayer">AFFRONTER UN AMI</string>
+
+    <!-- CategoryActivity -->
+    <string name="category_0">Catégories</string>
+    <string name="category_1">Culture générale</string>
+    <string name="category_2">Mathématiques</string>
+    <string name="category_3">Sciences</string>
+    <string name="category_4">Puzzle</string>
+    <string name="category_5">Géographie</string>
+
+    <!-- HistoryActivity -->
+    <string name="history">Historique</string>
+    <string name="history_friends">AMIS</string>
+    <string name="history_back">RETOUR</string>
+
+    <!-- SettingsActivity -->
+    <string name="settings">Paramètres</string>
+    <string name="settings_volume">Volume</string>
 
 </resources>
