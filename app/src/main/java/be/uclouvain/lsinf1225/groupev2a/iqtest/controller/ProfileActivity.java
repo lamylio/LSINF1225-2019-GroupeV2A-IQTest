@@ -7,6 +7,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+<<<<<<< Updated upstream:app/src/main/java/be/uclouvain/lsinf1225/groupev2a/iqtest/controller/ProfileActivity.java
+=======
+import be.uclouvain.lsinf1225.groupev2a.iqtest.Database.Table.User;
+>>>>>>> Stashed changes:app/src/main/java/be/uclouvain/lsinf1225/groupev2a/iqtest/Controller/ProfileActivity.java
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.HistoryActivity;
