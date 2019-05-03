@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.database;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.database.room;
 
 import android.content.Context;
 
@@ -9,16 +9,16 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.dao.AnswerDao;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.dao.GameDao;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.dao.QuestDao;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.dao.ResultDao;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.dao.UserDao;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.Answer;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.Game;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.Question;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.Result;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.User;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.AnswerDao;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.GameDao;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.QuestDao;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.ResultDao;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.UserDao;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Answer;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Game;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Question;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Result;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 /* Do not forget to insert the class in entities{} right below
  * And please don't increase the version, if you're getting an error, just clear the app's storage on the emulator (settings) */
