@@ -12,7 +12,7 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.game.ChooseModeActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.HistoryActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.SettingsActivity;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.User;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class ProfileActivity extends AppCompatActivity {
 

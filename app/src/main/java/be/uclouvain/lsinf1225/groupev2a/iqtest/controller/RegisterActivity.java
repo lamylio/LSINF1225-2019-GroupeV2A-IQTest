@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.AppDatabase;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.table.User;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.AppDatabase;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class RegisterActivity extends AppCompatActivity {
 
