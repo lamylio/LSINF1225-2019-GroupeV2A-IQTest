@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.AppDatabase;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.DatabaseHelper;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /* Initialize the database **/
-        AppDatabase.setup(this.getApplicationContext());
+        /* Initialize the database | Destruct when you've changed the schema **/
+        new DatabaseHelper(getApplicationContext(), true);
 
         loginButton = findViewById(R.id.login_button);
         loginUsername = findViewById(R.id.login_pseudo);
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     /* Try to find the username in the database */
-                    User logUser = AppDatabase.INSTANCE.userDao().findByName(loginUsername.getText().toString());
+                    User logUser = DatabaseHelper.INSTANCE.userDao().findByName(loginUsername.getText().toString());
 
                     /* User found in the database **/
                     if (logUser != null) {

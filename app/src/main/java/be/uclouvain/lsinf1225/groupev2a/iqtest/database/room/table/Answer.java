@@ -3,11 +3,11 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 
-@Entity(tableName = "ANSWERS", primaryKeys = {"id"})
+@Entity(tableName = "ANSWERS", primaryKeys = {"ans_id"})
 public class Answer {
 
     @NonNull
-    private int id;
+    private int ans_id;
     @NonNull
     private int quest_id;
     @NonNull
@@ -16,8 +16,9 @@ public class Answer {
     private boolean isCorrect;
 
     /* - Getters & Setters - */
-    public int getId() {return id;}
-    public void setId(int id) {this.id = id;}
+
+    public int getAns_id() {return ans_id;}
+    public void setAns_id(int ans_id) {this.ans_id = ans_id;}
 
     public int getQuest_id() {return quest_id;}
     public void setQuest_id(int quest_id) {this.quest_id = quest_id;}

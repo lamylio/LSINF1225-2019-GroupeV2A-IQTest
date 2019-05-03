@@ -44,12 +44,15 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void onClickPlayButton(View view){
         Utils.changeActivity(getApplicationContext(), ChooseModeActivity.class);
+        finish();
     }
     public void onClickHistoryButton(View view){
         Utils.changeActivity(getApplicationContext(), HistoryActivity.class);
+        finish();
     }
-    public void onClickParametersButton(View view){
+    public void onClickSettingsButton(View view){
         Utils.changeActivity(getApplicationContext(), SettingsActivity.class);
+        finish();
     }
 
     @Override
@@ -77,5 +80,6 @@ public class ProfileActivity extends AppCompatActivity {
             Utils.changeActivity(getApplicationContext(), MainActivity.class);
             finish();
         }
+        super.onBackPressed();
     }
 }

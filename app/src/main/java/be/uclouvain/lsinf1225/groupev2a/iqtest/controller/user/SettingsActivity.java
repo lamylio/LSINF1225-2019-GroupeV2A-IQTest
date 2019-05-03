@@ -9,6 +9,8 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.ProfileActivity;
 
 
 public class SettingsActivity extends Activity {
@@ -23,8 +25,14 @@ public class SettingsActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
-        setContentView(R.layout.activity_parameters);
+        setContentView(R.layout.activity_settings);
         initControls();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
+        finish();
     }
 
     private void initControls() {
