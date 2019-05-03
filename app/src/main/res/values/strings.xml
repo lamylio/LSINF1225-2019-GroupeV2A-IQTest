@@ -60,4 +60,8 @@
     <string name="settings_volume">Volume</string>
     <string name="settings">Paramètres</string>
 
+    <!-- GameActivity -->
+    <string name="Suivant">Suivant</string>
+    <string name="Temps">Temps</string>
+
 </resources>
