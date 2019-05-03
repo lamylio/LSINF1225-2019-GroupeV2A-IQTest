@@ -16,8 +16,4 @@ public class ChooseModeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choosemode);
     }
 
-    public void onClickCategoriesButton(View view){
-        Utils.changeActivity(getApplicationContext(), CategoryActivity.class);
-        finish();
-    }
 }

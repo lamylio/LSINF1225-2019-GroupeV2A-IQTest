@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".controller.game.ChooseModeActivity">
+    tools:context=".controller.game.GameActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -56,6 +56,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/whiteborder"
+        android:onClick="onClickNormalButton"
         android:text="@string/mode_normal"
         android:textColor="@android:color/white"
         android:textSize="30sp"
@@ -72,6 +73,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/whiteborder"
+        android:onClick="onClickRapideButton"
         android:text="@string/mode_speed"
         android:textColor="@android:color/white"
         android:textSize="30sp"
