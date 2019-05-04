@@ -66,4 +66,9 @@
     <string name="Suivant">Suivant</string>
     <string name="Temps">Temps</string>
 
+    <!-- ModeActivity -->
+    <string name="mode1">Partie</string>
+
+
+
 </resources>
