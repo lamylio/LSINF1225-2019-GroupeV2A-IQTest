@@ -18,11 +18,12 @@ public class ChooseModeActivity extends AppCompatActivity {
 
     public void onModeClick(View view){
         /* We only use one eventHandler to handle all the button.
-           Send to the ModeActivity and add an extraFlag with the ID of the clicked one
-         */
+           Send to the ModeActivity and add an extraFlag with the ID of the clicked one */
         Utils.changeActivity(getApplicationContext(), ModeActivity.class, "mode", String.valueOf(view.getId()));
         finish();
     }
+
+    public void onCategoriesClick(View v){setContentView(R.layout.activity_category);}
 
     @Override
     public void onBackPressed() {

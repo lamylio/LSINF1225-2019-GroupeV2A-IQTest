@@ -5,61 +5,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".controller.game.CategoryActivity">
+    tools:context=".controller.game.ChooseModeActivity">
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/categories_2"
         android:layout_width="270dp"
         android:layout_height="60dp"
         android:layout_marginStart="137dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/whiteborder"
+        android:onClick="onModeClick"
         android:text="@string/category_2"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10" />
+        app:layout_constraintTop_toBottomOf="@+id/categories_1" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/categories_3"
         android:layout_width="270dp"
         android:layout_height="60dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="137dp"
         android:background="@drawable/whiteborder"
+        android:onClick="onModeClick"
         android:text="@string/category_3"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button11" />
+        app:layout_constraintTop_toBottomOf="@+id/categories_2" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/categories_4"
         android:layout_width="270dp"
         android:layout_height="60dp"
         android:layout_marginStart="138dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/whiteborder"
+        android:onClick="onModeClick"
         android:text="@string/category_4"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button13" />
+        app:layout_constraintTop_toBottomOf="@+id/categories_3" />
 
     <Button
-        android:id="@+id/button15"
+        android:id="@+id/categories_5"
         android:layout_width="270dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/whiteborder"
+        android:onClick="onModeClick"
         android:text="@string/category_5"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button14" />
+        app:layout_constraintTop_toBottomOf="@+id/categories_4" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -118,13 +122,14 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/categories_1"
         android:layout_width="270dp"
         android:layout_height="60dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="137dp"
         android:background="@drawable/whiteborder"
+        android:onClick="onModeClick"
         android:text="@string/category_1"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,7 +145,7 @@
         android:layout_marginRight="24dp"
         android:contentDescription="@string/LOGO"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button14"
+        app:layout_constraintTop_toBottomOf="@+id/categories_4"
         app:srcCompat="@android:drawable/ic_menu_mapmode" />
 
 

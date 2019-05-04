@@ -93,7 +93,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/whiteborder"
-        android:onClick="onModeClick"
+        android:onClick="onCategoriesClick"
         android:text="@string/mode_categories"
         android:textColor="@android:color/white"
         android:textSize="30sp"
