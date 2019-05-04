@@ -39,16 +39,16 @@ public class DatabaseHelper {
             };
 
     private void setup(Context context) {
-        copyExistingDatabase(context, NAME);
+        copyExistingDatabase(context);
         INSTANCE = Room.databaseBuilder(context, AppDatabase.class, NAME).addCallback(DB_CALLBACK).build();
     }
     private void setupAndDestruct(Context context) {
-        copyExistingDatabase(context, NAME);
+        copyExistingDatabase(context);
         INSTANCE = Room.databaseBuilder(context, AppDatabase.class, NAME).addCallback(DB_CALLBACK).fallbackToDestructiveMigration().build();
     }
 
-    private void copyExistingDatabase(Context context, String databaseName) {
-        final File dbPath = context.getDatabasePath(databaseName);
+    private void copyExistingDatabase(Context context) {
+        final File dbPath = context.getDatabasePath(DatabaseHelper.NAME);
 
         /* If the database already exists, return it */
         if (dbPath.exists()) {
@@ -59,7 +59,7 @@ public class DatabaseHelper {
         dbPath.getParentFile().mkdirs();
         /* Try to copy database file */
         try {
-            final InputStream inputStream = context.getResources().getAssets().open(databaseName);
+            final InputStream inputStream = context.getResources().getAssets().open(DatabaseHelper.NAME);
             final OutputStream output = new FileOutputStream(dbPath);
             byte[] buffer = new byte[8192];
             int length;
