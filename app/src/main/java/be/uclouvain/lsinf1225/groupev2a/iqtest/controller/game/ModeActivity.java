@@ -1,6 +1,7 @@
 package be.uclouvain.lsinf1225.groupev2a.iqtest.controller.game;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,19 +27,25 @@ public class ModeActivity extends AppCompatActivity {
             return;
         }
         int id = Integer.parseInt(s_id);
-        /* Debug en cours */
+        TextView mode_title = findViewById(R.id.mode_title);
+        TextView mode_description = findViewById(R.id.mode_description);
+        TextView mode_time = findViewById(R.id.mode_time);
+
         switch (id) {
             case R.id.choose_friendButton:
-                Utils.sendLog(this.getClass(), "Friend");
+                mode_title.setText(getResources().getText(R.string.mode_multiplayer).toString());
+                mode_description.setText(getResources().getText(R.string.mode_multiplayer_description).toString());
+                mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
                 break;
             case R.id.choose_normalButton:
-                Utils.sendLog(this.getClass(), "Normal");
+                mode_title.setText(getResources().getText(R.string.mode_normal).toString());
+                mode_description.setText(getResources().getText(R.string.mode_normal_description).toString());
+                mode_time.setText(getResources().getText(R.string.mode_time_40).toString());
                 break;
-            case R.id.choose_fastButton:
-                Utils.sendLog(this.getClass(), "Fast");
-                break;
-            case R.id.choose_categoriesButton:
-                Utils.sendLog(this.getClass(), "Categories");
+            case R.id.choose_speedButton:
+                mode_title.setText(getResources().getText(R.string.mode_speed).toString());
+                mode_description.setText(getResources().getText(R.string.mode_speed_description).toString());
+                mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
                 break;
             default:
                 Utils.sendLog(this.getClass(), "Unknown mode : " + id);

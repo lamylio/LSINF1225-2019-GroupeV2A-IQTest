@@ -40,10 +40,10 @@
 
     <!-- ChooseMode -->
     <string name="mode">Mode</string>
-    <string name="mode_normal">NORMAL</string>
-    <string name="mode_speed">RAPIDE</string>
-    <string name="mode_categories">CATEGORIES</string>
-    <string name="mode_multiplayer">AFFRONTER UN AMI</string>
+    <string name="mode_normal">Normal</string>
+    <string name="mode_speed">Rapide</string>
+    <string name="mode_categories">Catégories</string>
+    <string name="mode_multiplayer">Affronter un ami</string>
 
     <!-- CategoryActivity -->
     <string name="category_0">Catégories</string>
@@ -67,8 +67,15 @@
     <string name="Temps">Temps</string>
 
     <!-- ModeActivity -->
-    <string name="mode1">Partie</string>
+    <string name="warning">Attention</string>
+    <string name="mode_footer">Vous ne disposez que d\'une minute par énigme. Passé ce délais, l\'épreuve sera considérée comme échouée. Il en va de même si vous quittez l\'application.</string>
 
+    <string name="mode_multiplayer_description">Blabla multijoueur.. à faire</string>
+    <string name="mode_speed_description">Ce mode de jeu a pour vocation de  vous amuser ou de vous échauffer mentalement avant un test réel. </string>
+    <string name="mode_normal_description">Petite description du quizz, avec les différentes catégories blabla.. à faire</string>
+
+    <string name="mode_time_5">5\"</string>
+    <string name="mode_time_40">40\"</string>
 
 
 </resources>
