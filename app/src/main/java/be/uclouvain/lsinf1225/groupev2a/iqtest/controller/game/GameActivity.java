@@ -54,6 +54,26 @@ public class GameActivity extends AppCompatActivity {
                 mode_description.setText(getResources().getText(R.string.mode_speed_description).toString());
                 mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
                 break;
+            case R.id.choose_logiqueButton:
+                mode_title.setText(getResources().getText(R.string.mode_logique).toString());
+                mode_description.setText(getResources().getText(R.string.mode_logique_description).toString());
+                mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
+                break;
+            case R.id.choose_numeriqueButton:
+                mode_title.setText(getResources().getText(R.string.mode_numerique).toString());
+                mode_description.setText(getResources().getText(R.string.mode_numerique_description).toString());
+                mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
+                break;
+            case R.id.choose_spatialButton:
+                mode_title.setText(getResources().getText(R.string.mode_spatial).toString());
+                mode_description.setText(getResources().getText(R.string.mode_spatial_description).toString());
+                mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
+                break;
+            case R.id.choose_verbalButton:
+                mode_title.setText(getResources().getText(R.string.mode_verbal).toString());
+                mode_description.setText(getResources().getText(R.string.mode_verbal_description).toString());
+                mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
+                break;
             default:
                 Utils.sendLog(this.getClass(), "Unknown mode : " + id);
                 break;
