@@ -23,9 +23,6 @@
         <activity android:name=".controller.user.HistoryActivity" />
         <activity android:name=".controller.user.SettingsActivity" />
 
-        <activity android:name=".controller.game.ChooseModeActivity" />
-
-        <activity android:name=".controller.game.ModeActivity" />
         <activity android:name=".controller.game.GameActivity" />
 
     </application>
