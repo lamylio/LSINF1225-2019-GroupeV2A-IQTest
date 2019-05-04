@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.ProfileActivity;
 
 public class ChooseModeActivity extends AppCompatActivity {
 
@@ -20,4 +21,11 @@ public class ChooseModeActivity extends AppCompatActivity {
         Utils.changeActivity(getApplicationContext(), CategoryActivity.class);
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
+        finish();
+    }
 }
+

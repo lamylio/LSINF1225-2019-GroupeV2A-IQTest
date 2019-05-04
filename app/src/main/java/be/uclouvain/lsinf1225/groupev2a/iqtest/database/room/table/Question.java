@@ -3,20 +3,20 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 
-@Entity(tableName = "QUESTIONS", primaryKeys = {"id"})
+@Entity(tableName = "QUESTIONS", primaryKeys = {"quest_id"})
 public class Question {
 
     @NonNull
-    private int id;
+    private int quest_id;
     @NonNull
     private String statement;
     @NonNull
     private String type;
-    private int weigth = 1;
+    private int weight = 1;
 
     /* - Getters & Setters - */
-    public int getId() {return id;}
-    public void setId(int id) {this.id = id;}
+    public int getQuest_id() {return quest_id;}
+    public void setQuest_id(int quest_id) {this.quest_id = quest_id;}
 
     @NonNull
     public String getStatement() {return statement;}
@@ -26,6 +26,6 @@ public class Question {
     public String getType() {return type;}
     public void setType(@NonNull String type) {this.type = type;}
 
-    public int getWeigth() {return weigth;}
-    public void setWeigth(int weigth) {this.weigth = weigth;}
+    public int getWeight() {return weight;}
+    public void setWeight(int weight) {this.weight = weight;}
 }

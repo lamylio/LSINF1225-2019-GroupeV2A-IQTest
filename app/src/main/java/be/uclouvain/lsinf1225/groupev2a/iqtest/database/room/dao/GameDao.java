@@ -8,8 +8,10 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Game;
 @Dao
 public interface GameDao {
 
-    @Query("SELECT * FROM GAMES WHERE id LIKE :game_id")
+    @Query("SELECT * FROM GAMES WHERE game_id LIKE :game_id")
     Game findByID(int game_id);
+
+
 
 }
 

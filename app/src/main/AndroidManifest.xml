@@ -22,11 +22,13 @@
         <activity android:name=".controller.ProfileActivity" />
 
         <activity android:name=".controller.user.HistoryActivity"/>
+        <activity android:name=".controller.user.SettingsActivity" />
 
         <activity android:name=".controller.game.CategoryActivity" />
+        <activity android:name=".controller.game.NormalActivity" />
         <activity android:name=".controller.game.ChooseModeActivity" />
-        <activity android:name=".controller.game.GameActivity" />
-        <activity android:name=".controller.QuestionActivity"/>
+
+
     </application>
 
 </manifest>

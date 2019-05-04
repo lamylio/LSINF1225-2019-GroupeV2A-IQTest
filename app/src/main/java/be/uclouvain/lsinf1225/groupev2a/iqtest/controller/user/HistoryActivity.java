@@ -1,7 +1,6 @@
 package be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,8 +15,9 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
     }
-    public void onClickBackButton(View view){
 
+    @Override
+    public void onBackPressed() {
         Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
         finish();
     }

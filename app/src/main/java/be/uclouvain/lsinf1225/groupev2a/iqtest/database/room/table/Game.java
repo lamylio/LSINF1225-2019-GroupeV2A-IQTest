@@ -3,11 +3,11 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 
-@Entity(tableName = "GAMES", primaryKeys = {"id"})
+@Entity(tableName = "GAMES", primaryKeys = {"game_id"})
 public class Game {
 
     @NonNull
-    private int id;
+    private int game_id;
     @NonNull
     private String username;
     @NonNull
@@ -28,8 +28,8 @@ public class Game {
         this.username = username;
     }
 
-    public int getId() {return id;}
-    public void setId(int id) {this.id = id;}
+    public int getGame_id() {return game_id;}
+    public void setGame_id(int game_id) {this.game_id = game_id;}
 
     @NonNull
     public String getType() {return type;}

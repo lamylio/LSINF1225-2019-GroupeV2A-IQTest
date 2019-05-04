@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.AppDatabase;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.DatabaseHelper;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -46,11 +46,11 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void run() {
 
-                    User check = AppDatabase.INSTANCE.userDao().findByName(registerUsername.getText().toString());
+                    User check = DatabaseHelper.INSTANCE.userDao().findByName(registerUsername.getText().toString());
                     if(check == null){
                         check = new User(registerUsername.getText().toString(), registerPassword.getText().toString());
                         check.setCity(registerCity.getText().toString());
-                        AppDatabase.INSTANCE.userDao().registerUser(check);
+                        DatabaseHelper.INSTANCE.userDao().registerUser(check);
 
                         Utils.toast = "Inscription réussie !";
                         Utils.sendLog(this.getClass(), "User " + check.getUsername() + " created");
