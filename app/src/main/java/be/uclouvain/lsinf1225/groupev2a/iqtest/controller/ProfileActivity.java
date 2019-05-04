@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.game.GameActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.HistoryActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.SettingsActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.DatabaseHelper;

@@ -19,7 +19,12 @@ public class Game {
 
     private String challenger;
 
-    public Game(){}
+
+    public Game(int game_id, String username, String type) {
+        setGame_id(game_id);
+        setUsername(username);
+        setType(type);
+    }
 
     @NonNull
     public String getUsername() {

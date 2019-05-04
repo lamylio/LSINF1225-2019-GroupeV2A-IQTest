@@ -1,4 +1,4 @@
-package be.uclouvain.lsinf1225.groupev2a.iqtest.controller.game;
+package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.ProfileActivity;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.DatabaseHelper;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Game;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Question;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -18,6 +21,8 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choosemode);
     }
 
+    /*-------MODE-----------------------------------------*/
+
     public void onModeClick(View view){
         /* We only use one eventHandler to handle all the button.
            Send to the ModeActivity and add an extraFlag with the ID of the clicked one */
@@ -25,6 +30,7 @@ public class GameActivity extends AppCompatActivity {
         updateUI(view);
     }
 
+    int id;
     private void updateUI(View view){
         String s_id = String.valueOf(view.getId());
         if(s_id == null) {
@@ -33,7 +39,7 @@ public class GameActivity extends AppCompatActivity {
             finish();
             return;
         }
-        int id = Integer.parseInt(s_id);
+        id = Integer.parseInt(s_id);
         TextView mode_title = findViewById(R.id.mode_title);
         TextView mode_description = findViewById(R.id.mode_description);
         TextView mode_time = findViewById(R.id.mode_time);
@@ -82,6 +88,23 @@ public class GameActivity extends AppCompatActivity {
 
     public void onCategoriesClick(View v){setContentView(R.layout.activity_category);}
 
+    /*-------------GAME--------------------------------*/
+
+    int game_id=0;
+    public void constructGame(View view){
+        game_id+=1;
+        id = view.getId();
+        switch (id){
+            case R.id.choose_speedButton:
+                Game new_game = new Game(game_id,User.loggedUser.toString(),"speed");
+                Question[] questTab = new Question[5];
+                for (int i=0;i<5;i+=1){
+                    questTab[i] = DatabaseHelper.INSTANCE.questDao().randomQuestion("speed");
+                }
+        }
+        Utils.changeActivity(getApplicationContext(),QuestionActivity.class);
+    }
+    /*-------------DIVERS------------------------------*/
     @Override
     public void onBackPressed() {
         View v = findViewById(R.id.activity_choosemode);

@@ -13,4 +13,6 @@ public interface QuestDao {
     @Query("SELECT * FROM QUESTIONS WHERE 1")
     List<Question> getAllQuestions();
 
+    @Query("SELECT * FROM QUESTIONS WHERE type LIKE :type")
+    Question randomQuestion(String type);
 }
