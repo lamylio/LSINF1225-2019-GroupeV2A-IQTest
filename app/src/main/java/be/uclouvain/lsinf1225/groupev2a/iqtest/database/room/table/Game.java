@@ -2,11 +2,12 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-@Entity(tableName = "GAMES", primaryKeys = {"game_id"})
+@Entity(tableName = "GAMES")
 public class Game {
 
-    @NonNull
+    @PrimaryKey(autoGenerate = true) @NonNull
     private int game_id;
     @NonNull
     private String username;

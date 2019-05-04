@@ -79,12 +79,14 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/whiteborder"
         android:onClick="onClickSettingsButton"
         android:text="@string/settings"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/profile_buttonHistory"
         app:layout_constraintTop_toBottomOf="@+id/profile_buttonPlay" />
@@ -92,35 +94,35 @@
     <Button
         android:id="@+id/profile_buttonPlay"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="150dp"
         android:layout_marginStart="48dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginBottom="120dp"
         android:background="@drawable/whiteborder"
         android:onClick="onClickPlayButton"
         android:text="@string/profile_play"
         android:textColor="@android:color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_username" />
 
     <Button
         android:id="@+id/profile_buttonHistory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/whiteborder"
         android:onClick="onClickHistoryButton"
         android:text="@string/profile_history"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/profile_buttonSettings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_buttonPlay" />
@@ -139,5 +141,17 @@
         app:layout_constraintEnd_toStartOf="@+id/header_appname"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/header_appname" />
+
+    <TextView
+        android:id="@+id/profile_remaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_buttonPlay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

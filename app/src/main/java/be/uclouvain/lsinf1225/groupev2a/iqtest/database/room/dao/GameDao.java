@@ -11,6 +11,8 @@ public interface GameDao {
     @Query("SELECT * FROM GAMES WHERE game_id LIKE :game_id")
     Game findByID(int game_id);
 
+    @Query("SELECT * FROM GAMES WHERE username LIKE :username")
+    Game[] findByPlayer(String username);
 
 
 }

@@ -12,6 +12,8 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.game.ChooseModeActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.HistoryActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.SettingsActivity;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.DatabaseHelper;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Game;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -34,10 +36,20 @@ public class ProfileActivity extends AppCompatActivity {
                     finish();
                     return;
                 }
-                TextView text = findViewById(R.id.profile_username);
-
                 Utils.sendLog(this.getClass(), "Retrieved logged user : " + User.loggedUser.getUsername());
-                text.setText(User.loggedUser.getUsername());
+
+                /* UI Elements which need to be updated */
+                TextView text_username = findViewById(R.id.profile_username);
+                TextView text_remaining = findViewById(R.id.profile_remaining);
+
+                /* Database interactions */
+                Game[] games = DatabaseHelper.INSTANCE.gameDao().findByPlayer(User.loggedUser.getUsername());
+
+                /* Update the UI with retrieved data */
+                text_username.setText(User.loggedUser.getUsername());
+                text_remaining.setText(games.length + " parties");
+
+
             }
         });
     }
@@ -80,6 +92,5 @@ public class ProfileActivity extends AppCompatActivity {
             Utils.changeActivity(getApplicationContext(), MainActivity.class);
             finish();
         }
-        super.onBackPressed();
     }
 }

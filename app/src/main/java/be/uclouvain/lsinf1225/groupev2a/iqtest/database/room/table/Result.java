@@ -10,7 +10,6 @@ public class Result {
     private int game_id;
     @NonNull
     private int quest_id;
-    @NonNull
     private int ans_id;
 
     /* - Getters & Setters - */

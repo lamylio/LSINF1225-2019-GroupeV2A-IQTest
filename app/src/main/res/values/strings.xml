@@ -8,9 +8,11 @@
     <string name="INVALID_PASSWORD">Mot de passe incorrect</string>
     <string name="INVALID_USER">Utilisateur introuvable</string>
 
-    <string name="NOT_LOGGED">Merci de vous (re)connecter</string>
-    <string name="SURE_DISCONNECT">Pressez le bouton retour une nouvelle fois pour vous déconnecter</string>
+    <string name="USED_USERNAME">Nom d\'utilisateur déjà emprunté</string>
+    <string name="REGISTER_SUCCESS">Inscription réussie</string>
 
+    <string name="NOT_LOGGED">Merci de vous (re)connecter</string>
+    <string name="SURE_DISCONNECT">Pressez à nouveau pour vous déconnecter</string>
 
     <!-- User common strings -->
     <string name="USERNAME">Pseudo</string>

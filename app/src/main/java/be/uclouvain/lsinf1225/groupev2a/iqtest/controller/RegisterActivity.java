@@ -52,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
                         check.setCity(registerCity.getText().toString());
                         DatabaseHelper.INSTANCE.userDao().registerUser(check);
 
-                        Utils.toast = "Inscription réussie !";
+                        Utils.toast = getResources().getText(R.string.REGISTER_SUCCESS).toString();
                         Utils.sendLog(this.getClass(), "User " + check.getUsername() + " created");
 
                         User.loggedUser = check;
@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
                         finish();
 
                     }else{
-                        Utils.toast = "Nom d'utilisateur déjà emprunté !";
+                        Utils.toast = getResources().getText(R.string.USED_USERNAME).toString();
                     }
                     Utils.gimmeToast(getApplicationContext());
                 }
