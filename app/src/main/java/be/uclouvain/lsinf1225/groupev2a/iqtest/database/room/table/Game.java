@@ -9,7 +9,7 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
 @Entity(tableName = "GAMES")
 public class Game {
 
-    @PrimaryKey(autoGenerate = true) @NonNull
+    @PrimaryKey(autoGenerate = true)
     private int game_id;
     @NonNull
     private String username;
