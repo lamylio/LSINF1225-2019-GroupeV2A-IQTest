@@ -13,6 +13,7 @@
 
     <string name="NOT_LOGGED">Merci de vous (re)connecter</string>
     <string name="SURE_DISCONNECT">Pressez à nouveau pour vous déconnecter</string>
+    <string name="CANNOT_BACK">Impossible. Quizz en cours</string>
 
     <!-- User common strings -->
     <string name="USERNAME">Pseudo</string>

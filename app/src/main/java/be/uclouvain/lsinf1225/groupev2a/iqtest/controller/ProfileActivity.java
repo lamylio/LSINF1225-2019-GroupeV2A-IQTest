@@ -46,9 +46,10 @@ public class ProfileActivity extends AppCompatActivity {
 
                 /* Update the UI with retrieved data */
                 text_username.setText(User.loggedUser.getUsername());
-                text_remaining.setText(games.length + " parties");
+                text_remaining.setText(games.length + (games.length > 1 ? " parties" : " partie"));
 
-
+                /* TODO : afficher et gérer si la personne a quitté en ayant pas terminé une partie
+                    Notamment en remplaçant le texte "JOUER" par "REPRENDRE" ou un truc dans le genre */
             }
         });
     }

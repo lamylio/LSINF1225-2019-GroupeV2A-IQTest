@@ -52,7 +52,7 @@ public class DatabaseHelper {
 
         /* If the database already exists, return it */
         if (dbPath.exists()) {
-            Utils.sendLog(this.getClass(), "Room database already exists, no copy ");
+            Utils.sendLog(this.getClass(), "Room database already exists, no copy");
             return;
         }
         /* Make sure we have a path to the file*/
@@ -70,6 +70,7 @@ public class DatabaseHelper {
             output.flush();
             output.close();
             inputStream.close();
+            Utils.sendLog(this.getClass(), "Prepopulated databased successfully copied");
         }
         catch (IOException e) {
             Log.e("IQW/DBHelper", "Failed to open existing database");

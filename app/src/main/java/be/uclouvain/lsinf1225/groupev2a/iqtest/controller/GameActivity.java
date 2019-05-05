@@ -99,14 +99,16 @@ public class GameActivity extends AppCompatActivity {
                            Je suis sûr qu'il y a moyen de faire ça un peu plus proprement qu'avec un switch dans updateUI et un dans constructGame
                            mais je vous laisse gérer ça :*
                          */
-                        Game new_game = new Game(User.loggedUser.getUsername(), "speed");
-                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
+
+                        DatabaseHelper.INSTANCE.gameDao().createGame(new Game(0, User.loggedUser.getUsername(), "speed"));
+                        Game new_game = DatabaseHelper.INSTANCE.gameDao().findLastByPlayer(User.loggedUser.getUsername());
 
                         Question[] questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(5);
                         if(questTab.length != 5) break;
 
                         for (Question question : questTab) {
                             DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
+                            //Utils.sendLog(this.getClass(), new_game.getGame_id() + " " + question.getQuest_id());
                         }
 
                         break;

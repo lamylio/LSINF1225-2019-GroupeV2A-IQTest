@@ -22,7 +22,8 @@ public class Game {
     private String challenger;
 
 
-    public Game(String username, String type) {
+    public Game(int game_id, String username, String type) {
+        setGame_id(game_id);
         setUsername(username);
         setType(type);
         setStart_time(Utils.dateFormated());

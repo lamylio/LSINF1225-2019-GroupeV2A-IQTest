@@ -15,6 +15,9 @@ public interface GameDao {
     @Query("SELECT * FROM GAMES WHERE username LIKE :username")
     Game[] findByPlayer(String username);
 
+    @Query("SELECT * FROM GAMES WHERE username LIKE :username ORDER BY game_id DESC LIMIT 1")
+    Game findLastByPlayer(String username);
+
     @Insert
     void createGame(Game game);
 

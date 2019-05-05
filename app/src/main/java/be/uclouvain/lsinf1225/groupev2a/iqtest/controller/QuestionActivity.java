@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
 
 public class QuestionActivity extends AppCompatActivity {
     Button choice1;
@@ -30,5 +31,10 @@ public class QuestionActivity extends AppCompatActivity {
 
     public void checkAnswer(View view){
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Utils.gimmeToast(getApplicationContext(), getText(R.string.CANNOT_BACK).toString());
     }
 }
