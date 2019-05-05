@@ -33,6 +33,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     int mode_id;
+    String mode;
     private void updateUI(View view){
         mode_id = view.getId();
         TextView mode_title = findViewById(R.id.mode_title);
@@ -41,36 +42,43 @@ public class GameActivity extends AppCompatActivity {
 
         switch (mode_id) {
             case R.id.choose_friendButton:
+                mode = "multiplayers";
                 mode_title.setText(getResources().getText(R.string.mode_multiplayer).toString());
                 mode_description.setText(getResources().getText(R.string.mode_multiplayer_description).toString());
                 mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
                 break;
             case R.id.choose_normalButton:
+                mode = "normal";
                 mode_title.setText(getResources().getText(R.string.mode_normal).toString());
                 mode_description.setText(getResources().getText(R.string.mode_normal_description).toString());
                 mode_time.setText(getResources().getText(R.string.mode_time_40).toString());
                 break;
             case R.id.choose_speedButton:
+                mode = "speed";
                 mode_title.setText(getResources().getText(R.string.mode_speed).toString());
                 mode_description.setText(getResources().getText(R.string.mode_speed_description).toString());
                 mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
                 break;
             case R.id.choose_logiqueButton:
+                mode = "logique";
                 mode_title.setText(getResources().getText(R.string.mode_logique).toString());
                 mode_description.setText(getResources().getText(R.string.mode_logique_description).toString());
                 mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
                 break;
             case R.id.choose_numeriqueButton:
+                mode = "numerique";
                 mode_title.setText(getResources().getText(R.string.mode_numerique).toString());
                 mode_description.setText(getResources().getText(R.string.mode_numerique_description).toString());
                 mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
                 break;
             case R.id.choose_spatialButton:
+                mode = "spacial";
                 mode_title.setText(getResources().getText(R.string.mode_spatial).toString());
                 mode_description.setText(getResources().getText(R.string.mode_spatial_description).toString());
                 mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
                 break;
             case R.id.choose_verbalButton:
+                mode = "verbal";
                 mode_title.setText(getResources().getText(R.string.mode_verbal).toString());
                 mode_description.setText(getResources().getText(R.string.mode_verbal_description).toString());
                 mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
@@ -86,110 +94,39 @@ public class GameActivity extends AppCompatActivity {
     /*-------------GAME--------------------------------*/
 
     public void constructGame(View view){
-        /* On a pas besoin d'un game_id puisqu'il est autogenerate */
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                Game new_game;
-                Question[] questTab;
-                switch (mode_id){
-                    case R.id.choose_speedButton:
+                /* Sorry Jérôme, j'ai modifié tout ce que tu as fait xD
+                   J'suis passé par des string pour le switch mais on peut tout à faire remettre les id, ça change rien
+                 */
+                int limit = 5;
+                Question[] questTab = new Question[0];
 
-                        /* En réalité, il faudrait mettre new_game et questTab en static dans la classe elle-même
-                           pour pouvoir y accéder depuis QuestionActivity ^^
+                DatabaseHelper.INSTANCE.gameDao().createGame(new Game(0, User.loggedUser.getUsername(), mode));
+                Game new_game = DatabaseHelper.INSTANCE.gameDao().findLastByPlayer(User.loggedUser.getUsername());
 
-                           Je suis sûr qu'il y a moyen de faire ça un peu plus proprement qu'avec un switch dans updateUI et un dans constructGame
-                           mais je vous laisse gérer ça :*
-                         */
-                        new_game = new Game(User.loggedUser.getUsername(), "speed");
-                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
-
-                        questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(5);
-                        if(questTab.length != 5) break;
-
-                        for (Question question : questTab) {
-                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
-                        }
-
+                switch (mode) {
+                    case "normal":
+                        limit = 40;
+                    case "speed":
+                    case "multiplayers":
+                        questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(limit);
                         break;
-                    case R.id.choose_normalButton:
-
-                        new_game = new Game(User.loggedUser.getUsername(), "normal");
-                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
-
-                        questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(40);
-                        if(questTab.length != 40) break;
-
-                        for (Question question : questTab) {
-                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
-                        }
-
+                    case "logique":
+                    case "numerique":
+                    case "spacial":
+                    case "verbal":
+                        questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions(mode, limit);
                         break;
-                    case R.id.choose_friendButton:
+                }
 
-                        new_game = new Game(User.loggedUser.getUsername(), "multiplayer");
-                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
+                if (questTab.length != limit)
+                    throw new Error("ERROR : PAS ASSEZ DE QUESTIONS - Il n'y a pas encore la répétition en boucle");
 
-                        questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(5);
-                        if(questTab.length != 5) break;
-
-                        for (Question question : questTab) {
-                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
-                        }
-
-                        break;
-                    case R.id.choose_logiqueButton:
-
-                        new_game = new Game(User.loggedUser.getUsername(), "logique");
-                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
-
-                        questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions("logique",5);
-                        if(questTab.length != 5) break;
-
-                        for (Question question : questTab) {
-                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
-                        }
-
-                        break;
-                    case R.id.choose_numeriqueButton:
-
-                        new_game = new Game(User.loggedUser.getUsername(), "numerique");
-                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
-
-                        questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions("numerique",5);
-                        if(questTab.length != 5) break;
-
-                        for (Question question : questTab) {
-                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
-                        }
-
-                        break;
-                    case R.id.choose_spatialButton:
-
-                        new_game = new Game(User.loggedUser.getUsername(), "spatial");
-                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
-
-                        questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions("spatial",5);
-                        if(questTab.length != 5) break;
-
-                        for (Question question : questTab) {
-                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
-                        }
-
-                        break;
-                    case R.id.choose_verbalButton:
-
-                        new_game = new Game(User.loggedUser.getUsername(), "verbal");
-                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
-
-                        questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions("verbal",5);
-                        if(questTab.length != 5) break;
-
-                        for (Question question : questTab) {
-                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
-                        }
-
-                        break;
+                for (Question question : questTab) {
+                    DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
+                    //Utils.sendLog(this.getClass(), new_game.getGame_id() + " " + question.getQuest_id());
                 }
             }
         });
