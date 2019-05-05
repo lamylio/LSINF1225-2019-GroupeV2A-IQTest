@@ -90,6 +90,8 @@ public class GameActivity extends AppCompatActivity {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
+                Game new_game;
+                Question[] questTab;
                 switch (mode_id){
                     case R.id.choose_speedButton:
 
@@ -99,16 +101,92 @@ public class GameActivity extends AppCompatActivity {
                            Je suis sûr qu'il y a moyen de faire ça un peu plus proprement qu'avec un switch dans updateUI et un dans constructGame
                            mais je vous laisse gérer ça :*
                          */
+                        new_game = new Game(User.loggedUser.getUsername(), "speed");
+                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
 
-                        DatabaseHelper.INSTANCE.gameDao().createGame(new Game(0, User.loggedUser.getUsername(), "speed"));
-                        Game new_game = DatabaseHelper.INSTANCE.gameDao().findLastByPlayer(User.loggedUser.getUsername());
-
-                        Question[] questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(5);
+                        questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(5);
                         if(questTab.length != 5) break;
 
                         for (Question question : questTab) {
                             DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
-                            //Utils.sendLog(this.getClass(), new_game.getGame_id() + " " + question.getQuest_id());
+                        }
+
+                        break;
+                    case R.id.choose_normalButton:
+
+                        new_game = new Game(User.loggedUser.getUsername(), "normal");
+                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
+
+                        questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(40);
+                        if(questTab.length != 40) break;
+
+                        for (Question question : questTab) {
+                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
+                        }
+
+                        break;
+                    case R.id.choose_friendButton:
+
+                        new_game = new Game(User.loggedUser.getUsername(), "multiplayer");
+                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
+
+                        questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(5);
+                        if(questTab.length != 5) break;
+
+                        for (Question question : questTab) {
+                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
+                        }
+
+                        break;
+                    case R.id.choose_logiqueButton:
+
+                        new_game = new Game(User.loggedUser.getUsername(), "logique");
+                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
+
+                        questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions("logique",5);
+                        if(questTab.length != 5) break;
+
+                        for (Question question : questTab) {
+                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
+                        }
+
+                        break;
+                    case R.id.choose_numeriqueButton:
+
+                        new_game = new Game(User.loggedUser.getUsername(), "numerique");
+                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
+
+                        questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions("numerique",5);
+                        if(questTab.length != 5) break;
+
+                        for (Question question : questTab) {
+                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
+                        }
+
+                        break;
+                    case R.id.choose_spatialButton:
+
+                        new_game = new Game(User.loggedUser.getUsername(), "spatial");
+                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
+
+                        questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions("spatial",5);
+                        if(questTab.length != 5) break;
+
+                        for (Question question : questTab) {
+                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
+                        }
+
+                        break;
+                    case R.id.choose_verbalButton:
+
+                        new_game = new Game(User.loggedUser.getUsername(), "verbal");
+                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
+
+                        questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions("verbal",5);
+                        if(questTab.length != 5) break;
+
+                        for (Question question : questTab) {
+                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
                         }
 
                         break;
