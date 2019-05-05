@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context=".controller.GameActivity"
-    >
+    android:id="@+id/activity_modeinfos">
 
 
     <Button
@@ -18,8 +18,9 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/whiteroundborder"
         android:onClick="constructGame"
-        android:text="@string/game_demarrer"
+        android:text="@string/game_start"
         android:textColor="@android:color/white"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

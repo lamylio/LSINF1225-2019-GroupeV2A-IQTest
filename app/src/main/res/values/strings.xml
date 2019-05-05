@@ -80,7 +80,6 @@
 
     <string name="mode_time_5">5\"</string>
     <string name="mode_time_40">40\"</string>
-    <string name="game_demarrer">C\'est parti !</string>
-
+    <string name="game_start">C\'est parti !</string>
 
 </resources>

@@ -7,6 +7,9 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Utils {
     public static String toast;
     static boolean DEBUG_LOG = true;
@@ -45,5 +48,10 @@ public class Utils {
 
     public static void changeActivity(Context appcontext, Class gotoActivity){
         changeActivity(appcontext, gotoActivity, null);
+    }
+
+    public static String dateFormated(){
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        return df.format(new Date().getTime());
     }
 }

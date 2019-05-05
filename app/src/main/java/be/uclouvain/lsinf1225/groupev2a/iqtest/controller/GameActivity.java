@@ -1,5 +1,6 @@
 package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.DatabaseHelper;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Game;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Question;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Result;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class GameActivity extends AppCompatActivity {
@@ -30,21 +32,14 @@ public class GameActivity extends AppCompatActivity {
         updateUI(view);
     }
 
-    int id;
+    int mode_id;
     private void updateUI(View view){
-        String s_id = String.valueOf(view.getId());
-        if(s_id == null) {
-            Utils.changeActivity(getApplicationContext(), GameActivity.class);
-            Utils.gimmeToast(getApplicationContext(), "Erreur - Impossible de retrouver le mode choisi ");
-            finish();
-            return;
-        }
-        id = Integer.parseInt(s_id);
+        mode_id = view.getId();
         TextView mode_title = findViewById(R.id.mode_title);
         TextView mode_description = findViewById(R.id.mode_description);
         TextView mode_time = findViewById(R.id.mode_time);
 
-        switch (id) {
+        switch (mode_id) {
             case R.id.choose_friendButton:
                 mode_title.setText(getResources().getText(R.string.mode_multiplayer).toString());
                 mode_description.setText(getResources().getText(R.string.mode_multiplayer_description).toString());
@@ -81,7 +76,7 @@ public class GameActivity extends AppCompatActivity {
                 mode_time.setText(getResources().getText(R.string.mode_time_5).toString());
                 break;
             default:
-                Utils.sendLog(this.getClass(), "Unknown mode : " + id);
+                Utils.sendLog(this.getClass(), "Unknown mode : " + mode_id);
                 break;
         }
     }
@@ -90,18 +85,35 @@ public class GameActivity extends AppCompatActivity {
 
     /*-------------GAME--------------------------------*/
 
-    int game_id=0;
     public void constructGame(View view){
-        game_id+=1;
-        id = view.getId();
-        switch (id){
-            case R.id.choose_speedButton:
-                Game new_game = new Game(game_id,User.loggedUser.toString(),"speed");
-                Question[] questTab = new Question[5];
-                for (int i=0;i<5;i+=1){
-                    questTab[i] = DatabaseHelper.INSTANCE.questDao().randomQuestion("speed");
+        /* On a pas besoin d'un game_id puisqu'il est autogenerate */
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                switch (mode_id){
+                    case R.id.choose_speedButton:
+
+                        /* En réalité, il faudrait mettre new_game et questTab en static dans la classe elle-même
+                           pour pouvoir y accéder depuis QuestionActivity ^^
+
+                           Je suis sûr qu'il y a moyen de faire ça un peu plus proprement qu'avec un switch dans updateUI et un dans constructGame
+                           mais je vous laisse gérer ça :*
+                         */
+                        Game new_game = new Game(User.loggedUser.getUsername(), "speed");
+                        DatabaseHelper.INSTANCE.gameDao().createGame(new_game);
+
+                        Question[] questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(5);
+                        if(questTab.length != 5) break;
+
+                        for (Question question : questTab) {
+                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
+                        }
+
+                        break;
                 }
-        }
+            }
+        });
+
         Utils.changeActivity(getApplicationContext(),QuestionActivity.class);
     }
     /*-------------DIVERS------------------------------*/

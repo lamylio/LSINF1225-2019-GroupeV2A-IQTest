@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
+
 @Entity(tableName = "GAMES")
 public class Game {
 
@@ -20,10 +22,10 @@ public class Game {
     private String challenger;
 
 
-    public Game(int game_id, String username, String type) {
-        setGame_id(game_id);
+    public Game(String username, String type) {
         setUsername(username);
         setType(type);
+        setStart_time(Utils.dateFormated());
     }
 
     @NonNull

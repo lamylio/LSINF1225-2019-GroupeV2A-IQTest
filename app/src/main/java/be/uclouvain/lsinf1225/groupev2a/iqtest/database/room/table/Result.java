@@ -12,6 +12,11 @@ public class Result {
     private int quest_id;
     private int ans_id;
 
+    public Result(int game_id, int quest_id){
+        setGame_id(game_id);
+        setQuest_id(quest_id);
+    }
+
     /* - Getters & Setters - */
     public int getGame_id() {return game_id;}
     public void setGame_id(int game_id) {this.game_id = game_id;}
