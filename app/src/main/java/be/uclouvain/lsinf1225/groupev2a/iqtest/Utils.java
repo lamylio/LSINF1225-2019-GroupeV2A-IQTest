@@ -51,6 +51,8 @@ public class Utils {
     }
 
     public static String dateFormated(){
+        //return DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(new Date());
+
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         return df.format(new Date().getTime());
     }
