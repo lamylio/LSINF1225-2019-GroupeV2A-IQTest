@@ -1,7 +1,10 @@
 package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +17,7 @@ public class QuestionActivity extends AppCompatActivity {
     Button choice3;
     Button choice4;
     Button suivant;
+    TextView time = findViewById(R.id.question_timer);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,17 @@ public class QuestionActivity extends AppCompatActivity {
         checkAnswer();
 
     }
+
+    CountDownTimer Timer = new CountDownTimer(600000, 1000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+            time.setText("Temps restant : " + millisUntilFinished/1000);
+        }
+        @Override
+        public void onFinish() {
+
+        }
+    }.start();
 
     private void checkAnswer(){
         String s_id = getIntent().getStringExtra("button");
@@ -38,10 +53,18 @@ public class QuestionActivity extends AppCompatActivity {
         choice3=findViewById(R.id.rep3);
         choice4=findViewById(R.id.rep4);
 
+
     }
 
     @Override
     public void onBackPressed() {
-        Utils.gimmeToast(getApplicationContext(), getText(R.string.CANNOT_BACK).toString());
+        View v = findViewById(R.id.activity_choosemode);
+        /* Don't ask me why its unequals but its working lol */
+        if(getCurrentFocus() != v) {
+            Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
+            finish();
+        }else{
+            setContentView(R.layout.activity_choosemode);
+        }
     }
 }

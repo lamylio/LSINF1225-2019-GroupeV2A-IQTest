@@ -121,7 +121,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/question_timer"
         android:layout_width="94dp"
         android:layout_height="41dp"
         android:layout_marginTop="24dp"
