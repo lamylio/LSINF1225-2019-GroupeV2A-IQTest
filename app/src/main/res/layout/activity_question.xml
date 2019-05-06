@@ -120,17 +120,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/question_timer"
-        android:layout_width="94dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="time"
+    <TextView
+        android:id="@+id/quesion_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginBottom="380dp"
         android:text="@string/Temps"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/question_rep2"
+        app:layout_constraintStart_toEndOf="@+id/header_appname" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

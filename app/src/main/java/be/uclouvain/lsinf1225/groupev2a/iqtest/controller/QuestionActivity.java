@@ -17,7 +17,7 @@ public class QuestionActivity extends AppCompatActivity {
     Button choice4;
     Button suivant;
     int index = 0;
-    TextView time = findViewById(R.id.question_timer);
+    TextView time = findViewById(R.id.quesion_timer);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
