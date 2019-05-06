@@ -20,11 +20,7 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-        suivant = findViewById(R.id.pg_suivante);
-        choice1=findViewById(R.id.rep1);
-        choice2=findViewById(R.id.rep2);
-        choice3=findViewById(R.id.rep3);
-        choice4=findViewById(R.id.rep4);
+        checkAnswer();
 
     }
 
@@ -36,12 +32,11 @@ public class QuestionActivity extends AppCompatActivity {
             finish();
             return;
         }
-        Button suivant=findViewById(R.id.pg_suivante);
-        Button choice1=findViewById(R.id.rep1);
-        Button choice2=findViewById(R.id.rep2);
-        Button choice3=findViewById(R.id.rep3);
-        Button choice4=findViewById(R.id.rep4);
-
+        suivant=findViewById(R.id.pg_suivante);
+        choice1=findViewById(R.id.rep1);
+        choice2=findViewById(R.id.rep2);
+        choice3=findViewById(R.id.rep3);
+        choice4=findViewById(R.id.rep4);
 
     }
 
