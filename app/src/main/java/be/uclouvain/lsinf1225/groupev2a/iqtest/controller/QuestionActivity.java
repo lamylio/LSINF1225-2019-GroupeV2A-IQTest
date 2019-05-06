@@ -62,7 +62,7 @@ public class QuestionActivity extends AppCompatActivity {
         choice3.setText(answers[2].getAnswer());
         choice4.setText(answers[3].getAnswer());
 
-        timer =  new CountDownTimer(5*1000, 1000) {
+        timer =  new CountDownTimer(60*1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 time.setText(String.valueOf(millisUntilFinished/1000));
