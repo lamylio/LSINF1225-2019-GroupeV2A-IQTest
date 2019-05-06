@@ -2,6 +2,7 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 
 @Entity(tableName = "RESULTS", primaryKeys = {"game_id", "quest_id", "ans_id"})
 public class Result {
@@ -15,6 +16,13 @@ public class Result {
     public Result(int game_id, int quest_id){
         setGame_id(game_id);
         setQuest_id(quest_id);
+    }
+
+    @Ignore
+    public Result(int game_id, int quest_id, int ans_id){
+        setGame_id(game_id);
+        setQuest_id(quest_id);
+        setAns_id(ans_id);
     }
 
     /* - Getters & Setters - */

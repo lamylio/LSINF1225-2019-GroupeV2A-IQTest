@@ -7,9 +7,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Hashtable;
+
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.DatabaseHelper;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Answer;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Game;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Question;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Result;
@@ -17,7 +20,8 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class GameActivity extends AppCompatActivity {
 
-    public static Question[] questTab;
+    public static Game game;
+    public static Hashtable<Question, Answer[]> answersTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,7 @@ public class GameActivity extends AppCompatActivity {
            Send to the ModeActivity and add an extraFlag with the ID of the clicked one */
         setContentView(R.layout.activity_modeinfos);
         updateUI(view);
+        answersTable = new Hashtable<>();
     }
 
     int mode_id;
@@ -103,10 +108,10 @@ public class GameActivity extends AppCompatActivity {
                    J'suis passé par des string pour le switch mais on peut tout à faire remettre les id, ça change rien
                  */
                 int limit = 5;
-                questTab = new Question[0];
+                Question[] questTab = new Question[0];
 
                 DatabaseHelper.INSTANCE.gameDao().createGame(new Game(0, User.loggedUser.getUsername(), mode));
-                Game new_game = DatabaseHelper.INSTANCE.gameDao().findLastByPlayer(User.loggedUser.getUsername());
+                game = DatabaseHelper.INSTANCE.gameDao().findLastByPlayer(User.loggedUser.getUsername());
 
                 switch (mode) {
                     case "normal":
@@ -127,13 +132,14 @@ public class GameActivity extends AppCompatActivity {
                     throw new Error("ERROR : PAS ASSEZ DE QUESTIONS - Il n'y a pas encore la répétition en boucle");
 
                 for (Question question : questTab) {
-                    DatabaseHelper.INSTANCE.resultDao().createResult(new Result(new_game.getGame_id(), question.getQuest_id()));
-                    //Utils.sendLog(this.getClass(), new_game.getGame_id() + " " + question.getQuest_id());
+                    DatabaseHelper.INSTANCE.resultDao().createResult(new Result(game.getGame_id(), question.getQuest_id()));
+                    Answer[] answers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromQuestion(question.getQuest_id());
+
+                    answersTable.put(question, answers);
                 }
+                Utils.changeActivity(getApplicationContext(),QuestionActivity.class);
             }
         });
-
-        Utils.changeActivity(getApplicationContext(),QuestionActivity.class);
     }
     /*-------------DIVERS------------------------------*/
     @Override
