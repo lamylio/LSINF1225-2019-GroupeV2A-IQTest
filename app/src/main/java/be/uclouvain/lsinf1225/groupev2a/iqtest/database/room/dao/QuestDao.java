@@ -19,4 +19,5 @@ public interface QuestDao {
     @Query("SELECT * FROM QUESTIONS ORDER BY RANDOM() LIMIT :limit")
     Question[] randomQuestions(int limit);
 
+
 }

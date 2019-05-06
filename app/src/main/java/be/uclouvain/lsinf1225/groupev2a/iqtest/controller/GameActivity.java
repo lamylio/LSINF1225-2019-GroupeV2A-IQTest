@@ -17,6 +17,8 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class GameActivity extends AppCompatActivity {
 
+    public static Question[] questTab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +103,7 @@ public class GameActivity extends AppCompatActivity {
                    J'suis passé par des string pour le switch mais on peut tout à faire remettre les id, ça change rien
                  */
                 int limit = 5;
-                Question[] questTab = new Question[0];
+                questTab = new Question[0];
 
                 DatabaseHelper.INSTANCE.gameDao().createGame(new Game(0, User.loggedUser.getUsername(), mode));
                 Game new_game = DatabaseHelper.INSTANCE.gameDao().findLastByPlayer(User.loggedUser.getUsername());

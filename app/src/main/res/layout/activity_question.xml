@@ -8,7 +8,7 @@
     tools:context=".controller.GameActivity">
 
     <Button
-        android:id="@+id/rep1"
+        android:id="@+id/question_rep1"
         android:layout_width="160dp"
         android:layout_height="90dp"
         android:layout_marginTop="364dp"
@@ -17,13 +17,13 @@
         android:text="@string/mode_multiplayer"
         android:textColor="@android:color/white"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/rep2"
+        app:layout_constraintEnd_toStartOf="@+id/question_rep2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:text="Réponse " />
 
     <Button
-        android:id="@+id/rep2"
+        android:id="@+id/question_rep2"
         android:layout_width="160dp"
         android:layout_height="90dp"
         android:layout_marginStart="16dp"
@@ -33,12 +33,12 @@
         android:textColor="@android:color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/rep1"
+        app:layout_constraintStart_toEndOf="@+id/question_rep1"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:text="Réponse " />
 
     <Button
-        android:id="@+id/rep4"
+        android:id="@+id/question_rep4"
         android:layout_width="160dp"
         android:layout_height="90dp"
         android:layout_marginStart="16dp"
@@ -48,12 +48,12 @@
         android:textColor="@android:color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/rep3"
-        app:layout_constraintTop_toBottomOf="@+id/rep2"
+        app:layout_constraintStart_toEndOf="@+id/question_rep3"
+        app:layout_constraintTop_toBottomOf="@+id/question_rep2"
         tools:text="Réponse " />
 
     <Button
-        android:id="@+id/rep3"
+        android:id="@+id/question_rep3"
         android:layout_width="160dp"
         android:layout_height="90dp"
         android:layout_marginTop="16dp"
@@ -62,9 +62,9 @@
         android:text="@string/mode_multiplayer"
         android:textColor="@android:color/white"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/rep4"
+        app:layout_constraintEnd_toStartOf="@+id/question_rep4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rep1"
+        app:layout_constraintTop_toBottomOf="@+id/question_rep1"
         tools:text="Réponse " />
 
     <ImageView
