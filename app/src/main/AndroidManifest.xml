@@ -19,7 +19,6 @@
         </activity>
         <activity android:name=".controller.RegisterActivity" />
         <activity android:name=".controller.ProfileActivity" />
-
         <activity android:name=".controller.user.HistoryActivity" />
         <activity android:name=".controller.user.SettingsActivity" />
         <activity android:name=".controller.QuestionActivity" />
