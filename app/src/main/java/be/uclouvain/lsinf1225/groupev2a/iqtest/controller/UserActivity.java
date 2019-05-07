@@ -17,7 +17,7 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Game;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Result;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
-public class ProfileActivity extends AppCompatActivity {
+public class UserActivity extends AppCompatActivity {
 
     boolean pressed = false;
     protected static Result[] unfinished_results;

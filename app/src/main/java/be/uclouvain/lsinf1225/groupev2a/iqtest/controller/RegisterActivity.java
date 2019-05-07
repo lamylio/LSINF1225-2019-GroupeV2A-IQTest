@@ -56,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Utils.sendLog(this.getClass(), "User " + check.getUsername() + " created");
 
                         User.loggedUser = check;
-                        Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
+                        Utils.changeActivity(getApplicationContext(), UserActivity.class);
                         finish();
 
                     }else{

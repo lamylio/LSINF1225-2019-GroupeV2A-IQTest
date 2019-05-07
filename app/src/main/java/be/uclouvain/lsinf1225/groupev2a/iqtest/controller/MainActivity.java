@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
                         /* The given password equals the stored one */
                         if (User.hashPassword(loginPassword.getText().toString()).equals(logUser.getPassword())) {
 
-                            /* Send the loggedUser to the ProfileActivity */
+                            /* Send the loggedUser to the UserActivity */
                             User.loggedUser = logUser;
-                            Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
+                            Utils.changeActivity(getApplicationContext(), UserActivity.class);
                             finish();
 
                             Utils.toast = getResources().getText(R.string.WELCOME) + ", " + logUser.getUsername();

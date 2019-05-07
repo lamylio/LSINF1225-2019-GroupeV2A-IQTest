@@ -10,7 +10,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
-import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.ProfileActivity;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.UserActivity;
 
 
 public class SettingsActivity extends Activity {
@@ -31,7 +31,7 @@ public class SettingsActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
+        Utils.changeActivity(getApplicationContext(), UserActivity.class);
         finish();
     }
 

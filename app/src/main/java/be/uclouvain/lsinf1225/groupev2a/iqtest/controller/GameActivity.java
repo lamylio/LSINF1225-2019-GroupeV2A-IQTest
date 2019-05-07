@@ -30,7 +30,7 @@ public class GameActivity extends AppCompatActivity {
         answersTable = new Hashtable<>();
 
         /* If we're here to continue a previsou game */
-        if(ProfileActivity.unfinished_results.length > 0) this.continueGame();
+        if(UserActivity.unfinished_results.length > 0) this.continueGame();
     }
 
     /*-------MODE-----------------------------------------*/
@@ -153,7 +153,7 @@ public class GameActivity extends AppCompatActivity {
             public void run() {
                 game = DatabaseHelper.INSTANCE.gameDao().findLastByPlayer(User.loggedUser.getUsername());
 
-                for (Result result : ProfileActivity.unfinished_results){
+                for (Result result : UserActivity.unfinished_results){
                     Question question = DatabaseHelper.INSTANCE.questDao().getQuestionFromID(result.getQuest_id());
                     Answer[] answers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromQuestion(question.getQuest_id());
 
@@ -170,7 +170,7 @@ public class GameActivity extends AppCompatActivity {
         View v = findViewById(R.id.activity_choosemode);
         /* Don't ask me why its unequals but its working lol */
         if(getCurrentFocus() != v) {
-            Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
+            Utils.changeActivity(getApplicationContext(), UserActivity.class);
             finish();
         }else{
             setContentView(R.layout.activity_choosemode);
