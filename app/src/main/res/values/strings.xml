@@ -36,7 +36,7 @@
     <string name="register_subtitle">Création d\'un nouveau compte</string>
     <string name="register_button">Inscription</string>
 
-    <!-- ProfileActivity (account) -->
+    <!-- UserActivity (account) -->
     <string name="profile_play">JOUER</string>
     <string name="profile_continue">REPRENDRE</string>
     <string name="profile_history">Historique</string>

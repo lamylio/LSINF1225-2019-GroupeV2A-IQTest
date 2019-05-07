@@ -116,7 +116,7 @@ public class QuestionActivity extends AppCompatActivity {
         timer.cancel();
         GameActivity.answersTable = null;
         GameActivity.game = null;
-        Utils.changeActivity(getApplicationContext(), ProfileActivity.class);
+        Utils.changeActivity(getApplicationContext(), UserActivity.class);
         finish();
     }
 
