@@ -101,6 +101,8 @@
         android:background="@drawable/whiteborder"
         android:onClick="onClickPlayButton"
         android:text="@string/profile_play"
+        android:textAlignment="center"
+        android:textAllCaps="true"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

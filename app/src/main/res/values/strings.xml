@@ -13,7 +13,7 @@
 
     <string name="NOT_LOGGED">Merci de vous (re)connecter</string>
     <string name="SURE_DISCONNECT">Pressez à nouveau pour vous déconnecter</string>
-    <string name="CANNOT_BACK">Impossible. Quizz en cours</string>
+    <string name="CANNOT_BACK">Quitter vous fera perdre cette question</string>
 
     <string name="TIMEOUT">Temps écoulé ! Question suivante</string>
 
@@ -38,6 +38,7 @@
 
     <!-- ProfileActivity (account) -->
     <string name="profile_play">JOUER</string>
+    <string name="profile_continue">REPRENDRE</string>
     <string name="profile_history">Historique</string>
     <string name="profile_settings">Paramètres</string>
 

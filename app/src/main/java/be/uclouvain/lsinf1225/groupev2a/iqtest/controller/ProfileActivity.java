@@ -3,6 +3,7 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +14,13 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.HistoryActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.SettingsActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.DatabaseHelper;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Game;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Result;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class ProfileActivity extends AppCompatActivity {
 
     boolean pressed = false;
+    protected static Result[] unfinished_results;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,31 +28,45 @@ public class ProfileActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_profile);
 
+        if(User.loggedUser == null){
+            Utils.changeActivity(getApplicationContext(), MainActivity.class);
+            Utils.gimmeToast(getApplicationContext(), getText(R.string.NOT_LOGGED).toString());
+            Utils.sendLog(this.getClass(), "ERROR : user not logged");
+            finish();
+            return;
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        updateUI();
+    }
+
+    private void updateUI(){
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                if(User.loggedUser == null){
-                    Utils.changeActivity(getApplicationContext(), MainActivity.class);
-                    Utils.gimmeToast(getApplicationContext(), getText(R.string.NOT_LOGGED).toString());
-                    Utils.sendLog(this.getClass(), "ERROR : user not logged");
-                    finish();
-                    return;
-                }
                 Utils.sendLog(this.getClass(), "Retrieved logged user : " + User.loggedUser.getUsername());
 
                 /* UI Elements which need to be updated */
                 TextView text_username = findViewById(R.id.profile_username);
                 TextView text_remaining = findViewById(R.id.profile_remaining);
+                Button button_play = findViewById(R.id.profile_buttonPlay);
 
                 /* Database interactions */
                 Game[] games = DatabaseHelper.INSTANCE.gameDao().findByPlayer(User.loggedUser.getUsername());
+                unfinished_results = DatabaseHelper.INSTANCE.resultDao().getUnrespondedResultsFromGame(games[games.length-1].getGame_id());
 
                 /* Update the UI with retrieved data */
                 text_username.setText(User.loggedUser.getUsername());
                 text_remaining.setText(games.length + (games.length > 1 ? " parties" : " partie"));
 
-                /* TODO : afficher et gérer si la personne a quitté en ayant pas terminé une partie
-                    Notamment en remplaçant le texte "JOUER" par "REPRENDRE" ou un truc dans le genre */
+                if(unfinished_results.length > 0){
+                    button_play.setText(getText(R.string.profile_continue));
+                    text_remaining.setText("Il vous reste " + unfinished_results.length + (unfinished_results.length > 1 ? " questions" : " question"));
+                }
+
             }
         });
     }

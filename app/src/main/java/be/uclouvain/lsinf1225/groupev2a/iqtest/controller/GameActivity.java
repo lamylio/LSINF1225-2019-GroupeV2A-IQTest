@@ -27,6 +27,10 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choosemode);
+        answersTable = new Hashtable<>();
+
+        /* If we're here to continue a previsou game */
+        if(ProfileActivity.unfinished_results.length > 0) this.continueGame();
     }
 
     /*-------MODE-----------------------------------------*/
@@ -36,7 +40,6 @@ public class GameActivity extends AppCompatActivity {
            Send to the ModeActivity and add an extraFlag with the ID of the clicked one */
         setContentView(R.layout.activity_modeinfos);
         updateUI(view);
-        answersTable = new Hashtable<>();
     }
 
     int mode_id;
@@ -100,47 +103,67 @@ public class GameActivity extends AppCompatActivity {
 
     /*-------------GAME--------------------------------*/
 
-    public void constructGame(View view){
+    public void constructGame(View view) {
+        Question[] questTab = new Question[0];
+
+        /* In case of a proper new game */
+
+            AsyncTask.execute(new Runnable() {
+                @Override
+                public void run() {
+                    Question[] questTab = new Question[0];
+
+                        int limit = 5;
+                        DatabaseHelper.INSTANCE.gameDao().createGame(new Game(0, User.loggedUser.getUsername(), mode));
+                        game = DatabaseHelper.INSTANCE.gameDao().findLastByPlayer(User.loggedUser.getUsername());
+
+                        switch (mode) {
+                            case "normal":
+                                limit = 40;
+                            case "speed":
+                            case "multiplayers":
+                                questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(limit);
+                                break;
+                            case "logique":
+                            case "numerique":
+                            case "spacial":
+                            case "verbal":
+                                questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions(mode, limit);
+                                break;
+                        }
+
+                        /*if (questTab.length != limit)
+                            throw new Error("ERROR : PAS ASSEZ DE QUESTIONS - Il n'y a pas encore la répétition en boucle"); */
+
+                        for (Question question : questTab) {
+                            DatabaseHelper.INSTANCE.resultDao().createResult(new Result(game.getGame_id(), question.getQuest_id()));
+                            Answer[] answers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromQuestion(question.getQuest_id());
+
+                            answersTable.put(question, answers);
+                        }
+                    Utils.changeActivity(getApplicationContext(), QuestionActivity.class);
+                }
+            });
+    }
+
+    private void continueGame()
+    {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                /* Sorry Jérôme, j'ai modifié tout ce que tu as fait xD
-                   J'suis passé par des string pour le switch mais on peut tout à faire remettre les id, ça change rien
-                 */
-                int limit = 5;
-                Question[] questTab = new Question[0];
-
-                DatabaseHelper.INSTANCE.gameDao().createGame(new Game(0, User.loggedUser.getUsername(), mode));
                 game = DatabaseHelper.INSTANCE.gameDao().findLastByPlayer(User.loggedUser.getUsername());
 
-                switch (mode) {
-                    case "normal":
-                        limit = 40;
-                    case "speed":
-                    case "multiplayers":
-                        questTab = DatabaseHelper.INSTANCE.questDao().randomQuestions(limit);
-                        break;
-                    case "logique":
-                    case "numerique":
-                    case "spacial":
-                    case "verbal":
-                        questTab = DatabaseHelper.INSTANCE.questDao().randomTypeQuestions(mode, limit);
-                        break;
-                }
-
-                if (questTab.length != limit)
-                    throw new Error("ERROR : PAS ASSEZ DE QUESTIONS - Il n'y a pas encore la répétition en boucle");
-
-                for (Question question : questTab) {
-                    DatabaseHelper.INSTANCE.resultDao().createResult(new Result(game.getGame_id(), question.getQuest_id()));
+                for (Result result : ProfileActivity.unfinished_results){
+                    Question question = DatabaseHelper.INSTANCE.questDao().getQuestionFromID(result.getQuest_id());
                     Answer[] answers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromQuestion(question.getQuest_id());
 
                     answersTable.put(question, answers);
                 }
-                Utils.changeActivity(getApplicationContext(),QuestionActivity.class);
+                Utils.changeActivity(getApplicationContext(), QuestionActivity.class);
             }
         });
     }
+
     /*-------------DIVERS------------------------------*/
     @Override
     public void onBackPressed() {

@@ -13,6 +13,9 @@ public interface QuestDao {
     @Query("SELECT * FROM QUESTIONS WHERE 1")
     List<Question> getAllQuestions();
 
+    @Query("SELECT * FROM QUESTIONS WHERE quest_id =  :quest_id")
+    Question getQuestionFromID(int quest_id);
+
     @Query("SELECT * FROM QUESTIONS WHERE type LIKE :type ORDER BY RANDOM() LIMIT :limit")
     Question[] randomTypeQuestions(String type, int limit);
 
