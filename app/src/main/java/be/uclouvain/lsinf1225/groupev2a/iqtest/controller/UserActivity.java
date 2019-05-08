@@ -20,14 +20,18 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 public class UserActivity extends AppCompatActivity {
 
     boolean pressed = false;
-    protected static Result[] unfinished_results;
+    protected static Result[] unfinished_results = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView(R.layout.activity_profile);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         if(User.loggedUser == null){
             Utils.changeActivity(getApplicationContext(), MainActivity.class);
             Utils.gimmeToast(getApplicationContext(), getText(R.string.NOT_LOGGED).toString());
@@ -35,11 +39,6 @@ public class UserActivity extends AppCompatActivity {
             finish();
             return;
         }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         updateUI();
     }
 
@@ -56,13 +55,13 @@ public class UserActivity extends AppCompatActivity {
 
                 /* Database interactions */
                 Game[] games = DatabaseHelper.INSTANCE.gameDao().findByPlayer(User.loggedUser.getUsername());
-                unfinished_results = DatabaseHelper.INSTANCE.resultDao().getUnrespondedResultsFromGame(games[games.length-1].getGame_id());
+                if(games != null && games.length > 0) unfinished_results = DatabaseHelper.INSTANCE.resultDao().getUnrespondedResultsFromGame(games[games.length-1].getGame_id());
 
                 /* Update the UI with retrieved data */
                 text_username.setText(User.loggedUser.getUsername());
                 text_remaining.setText(games.length + (games.length > 1 ? " parties" : " partie"));
 
-                if(unfinished_results.length > 0){
+                if(unfinished_results != null && unfinished_results.length > 0){
                     button_play.setText(getText(R.string.profile_continue));
                     text_remaining.setText("Il vous reste " + unfinished_results.length + (unfinished_results.length > 1 ? " questions" : " question"));
                 }

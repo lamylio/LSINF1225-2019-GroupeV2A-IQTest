@@ -28,12 +28,17 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choosemode);
         answersTable = new Hashtable<>();
-
-        /* If we're here to continue a previsou game */
-        if(UserActivity.unfinished_results.length > 0) this.continueGame();
     }
 
-    /*-------MODE-----------------------------------------*/
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(UserActivity.unfinished_results != null &&  UserActivity.unfinished_results.length > 0)
+            this.continueGame();
+    }
+
+
+    /* ----- SELECT MODE ----- */
 
     public void onModeClick(View view){
         /* We only use one eventHandler to handle all the button.
@@ -101,7 +106,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void onCategoriesClick(View v){setContentView(R.layout.activity_category);}
 
-    /*-------------GAME--------------------------------*/
+    /* ----- NEW GAME ----- */
 
     public void constructGame(View view) {
         Question[] questTab = new Question[0];
@@ -141,7 +146,7 @@ public class GameActivity extends AppCompatActivity {
 
                             answersTable.put(question, answers);
                         }
-                    Utils.changeActivity(getApplicationContext(), QuestionActivity.class);
+                    Utils.changeActivity(getApplicationContext(), QuestionActivity.class); finish();
                 }
             });
     }
@@ -151,20 +156,20 @@ public class GameActivity extends AppCompatActivity {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
+                Utils.sendLog(this.getClass(), "continueGame() called");
                 game = DatabaseHelper.INSTANCE.gameDao().findLastByPlayer(User.loggedUser.getUsername());
 
                 for (Result result : UserActivity.unfinished_results){
                     Question question = DatabaseHelper.INSTANCE.questDao().getQuestionFromID(result.getQuest_id());
                     Answer[] answers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromQuestion(question.getQuest_id());
-
                     answersTable.put(question, answers);
                 }
-                Utils.changeActivity(getApplicationContext(), QuestionActivity.class);
+                Utils.changeActivity(getApplicationContext(), QuestionActivity.class); finish();
             }
         });
     }
 
-    /*-------------DIVERS------------------------------*/
+    /* ----- -----*/
     @Override
     public void onBackPressed() {
         View v = findViewById(R.id.activity_choosemode);
@@ -177,21 +182,3 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 }
-/*
-djsflksdjfsdklfhsdflkhsdf
-fjskmdgljdfjkgjdfm
-kjfksmdlkgkjsdjklgjkfdsµ
-dsnkfmldskfgkjfd
-jksdmlgjksfdkgfkls
-kdslkgfhjkdkhgµ
-lhjskdkfkhsdkhghkjfsd
-ksdlkgdfkjjkgldf
-mksdlgkjfsdgjklfjkldg
-kxqlcgmdsjgfsjlglkmfjd
-mskdlgfshgfhdghùdfkghfdkg
-shkdmlfksdhgdsghklsdhg
-ksdlghkdkhllkgdsqhxgù
-ùqsdghldskkhghsdhgshhg
-smhkgkhsglsgdhgshklùgs
-ajhahhhaah
- */
