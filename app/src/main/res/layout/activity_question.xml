@@ -21,7 +21,7 @@
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/question_ans_4"
+        app:layout_constraintBottom_toTopOf="@+id/question_ans_3"
         app:layout_constraintEnd_toStartOf="@+id/question_ans_2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/question_ans_2"
@@ -42,7 +42,7 @@
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/question_ans_3"
+        app:layout_constraintBottom_toTopOf="@+id/question_ans_4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/question_ans_1"
         tools:text="Réponse " />
@@ -63,9 +63,11 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/question_ans_4"
+        app:layout_constraintEnd_toStartOf="@+id/question_ans_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/question_ans_4"
         tools:text="Réponse " />
+
 
     <Button
         android:id="@+id/question_ans_4"
@@ -83,9 +85,8 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/question_ans_3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/question_ans_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/question_ans_3"
         tools:text="Réponse " />
 
     <ImageView
@@ -96,7 +97,6 @@
         android:background="@android:color/white"
         android:contentDescription="@string/APP_NAME"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/header_appname"

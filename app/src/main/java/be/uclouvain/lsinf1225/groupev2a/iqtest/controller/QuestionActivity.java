@@ -19,22 +19,23 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Question;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
 
 public class QuestionActivity extends AppCompatActivity {
-    Button choice1;
-    Button choice2;
-    Button choice3;
-    Button choice4;
-    Button next;
-
-    TextView time;
-    TextView questionStatement;
-
 
     Iterator<Question> iterator;
     Question question;
     Answer[] answers;
 
+    Button[] choices = new Button[4];
+    Button next;
+
+    TextView time;
+    TextView questionStatement;
+
+    TextView score;
+
     CountDownTimer timer;
     int index = 0;
+
+    boolean finished;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +45,10 @@ public class QuestionActivity extends AppCompatActivity {
         time  = findViewById(R.id.question_timer);
         questionStatement = findViewById(R.id.question_statement);
 
-        choice1 = findViewById(R.id.question_ans_1);
-        choice2 = findViewById(R.id.question_ans_2);
-        choice3 = findViewById(R.id.question_ans_4);
-        choice4 = findViewById(R.id.question_ans_3);
+        choices[0] = findViewById(R.id.question_ans_1);
+        choices[1] = findViewById(R.id.question_ans_2);
+        choices[2] = findViewById(R.id.question_ans_3);
+        choices[3] = findViewById(R.id.question_ans_4);
 
         if(User.loggedUser == null || GameActivity.answersTable == null) Utils.changeActivity(getApplicationContext(), MainActivity.class);
     }
@@ -71,10 +72,10 @@ public class QuestionActivity extends AppCompatActivity {
         if(answers.length != 4) throw new Error("Erreur récupération des réponses");
 
         questionStatement.setText(question.getStatement());
-        choice1.setText(answers[0].getAnswer());
-        choice2.setText(answers[1].getAnswer());
-        choice3.setText(answers[2].getAnswer());
-        choice4.setText(answers[3].getAnswer());
+        choices[0].setText(answers[0].getAnswer());
+        choices[1].setText(answers[1].getAnswer());
+        choices[2].setText(answers[2].getAnswer());
+        choices[3].setText(answers[3].getAnswer());
 
         resetCountdown();
     }
@@ -91,10 +92,14 @@ public class QuestionActivity extends AppCompatActivity {
         saveAnswer(ans_id);
 
         if(!iterator.hasNext()) {
+            timer.cancel();
+            finished = true;
+            Utils.sendLog(this.getClass(), "----- QUIZZ END -----");
+            Utils.gimmeToast(getApplicationContext(), "Test terminé.");
             showEndingResults();
             return;
         }else {
-            Utils.sendLog(this.getClass(), "----- Next question -----");
+            Utils.sendLog(this.getClass(), "----- NEXT QUESTION -----");
             showQuestion();
             return;
         }
@@ -105,14 +110,30 @@ public class QuestionActivity extends AppCompatActivity {
 
     private void showEndingResults(){
         /* TODO */
-        Utils.sendLog(this.getClass(), "----- No more elements - show results (TODO) -----");
-        Utils.gimmeToast(getApplicationContext(), "Test terminé. Afficher les résultats");
-        finishGame();
+        setContentView(R.layout.activity_showresults);
+        score = findViewById(R.id.results_score);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Answer[] answers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromGame(GameActivity.game.getGame_id());
+                if(answers == null) throw new Error("Erreur récupération des answers d'une game");
+                int i = 0;
+                for (Answer answer : answers) {
+                    if(answer.isCorrect()) i++;
+                    Utils.sendLog(this.getClass(), answer.getQuest_id() + " / " + answer.getAns_id() + " | " + answer.getAnswer() + " : " + answer.isCorrect());
+                }
+
+                score = findViewById(R.id.results_score);
+                score.setText("Vous avez " + i + " bonne(s) réponse(s) sur " + answers.length);
+                score.refreshDrawableState();
+            }
+        }).start();
+
         return;
     }
 
     private void finishGame(){
-        timer.cancel();
         GameActivity.answersTable = null;
         GameActivity.game = null;
         Utils.changeActivity(getApplicationContext(), UserActivity.class);
@@ -123,7 +144,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     private void resetCountdown(){
         if(timer != null) timer.cancel();
-        timer =  new CountDownTimer(10*1000, 1000) {
+        timer =  new CountDownTimer(60*1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 time.setText(String.valueOf(millisUntilFinished/1000));
@@ -141,7 +162,7 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void run() {
                 DatabaseHelper.INSTANCE.resultDao().updateResult(GameActivity.game.getGame_id(), question.getQuest_id(), ans_id);
-                Utils.sendLog(this.getClass(), "- quest_id : " + question.getQuest_id() + " / ans_id : " + ans_id);
+                Utils.sendLog(this.getClass(), "quest_id : " + question.getQuest_id() + " / ans_id : " + ans_id);
             }
 
 
@@ -154,14 +175,16 @@ public class QuestionActivity extends AppCompatActivity {
     boolean pressed = false;
     @Override
     public void onBackPressed() {
-        /* Ask for confirmation, in case of missclick */
-        if(!pressed){
-            Utils.gimmeToast(getApplicationContext(), getText(R.string.CANNOT_BACK).toString());
-            pressed = true;
-        }else{
-            /*  Give a penality (-1) */
-            saveAnswer(-1);
-            finishGame();
-        }
+        if (!finished) {
+            /* Ask for confirmation, in case of missclick */
+            if (!pressed) {
+                Utils.gimmeToast(getApplicationContext(), getText(R.string.CANNOT_BACK).toString());
+                pressed = true;
+            } else {
+                /*  Give a penality (-1) */
+                saveAnswer(-1);
+                finishGame();
+            }
+        }else {finishGame();}
     }
 }

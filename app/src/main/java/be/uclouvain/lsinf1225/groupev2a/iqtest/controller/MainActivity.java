@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.login_button);
         loginUsername = findViewById(R.id.login_pseudo);
         loginPassword = findViewById(R.id.login_password);
-        loginMessage = findViewById(R.id.login_message);
         loginRegisterButton = findViewById(R.id.login_registerButton);
 
         loginRegisterButton.setOnClickListener(new View.OnClickListener() {

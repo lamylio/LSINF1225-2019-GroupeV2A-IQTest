@@ -16,6 +16,21 @@
         android:contentDescription="@string/APP_NAME"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/header_applogo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:contentDescription="@string/LOGO"
+        android:src="@drawable/app_logo_puzzle"
+        app:layout_constraintBottom_toBottomOf="@+id/header_appname"
+        app:layout_constraintEnd_toStartOf="@+id/header_appname"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/header_appname" />
+
 
     <TextView
         android:id="@+id/header_appname"
@@ -128,21 +143,6 @@
         app:layout_constraintEnd_toStartOf="@+id/profile_buttonSettings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_buttonPlay" />
-
-    <ImageView
-        android:id="@+id/header_applogo"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:contentDescription="@string/LOGO"
-        android:src="@drawable/app_logo_puzzle"
-        app:layout_constraintBottom_toBottomOf="@+id/header_appname"
-        app:layout_constraintEnd_toStartOf="@+id/header_appname"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/header_appname" />
 
     <TextView
         android:id="@+id/profile_remaining"

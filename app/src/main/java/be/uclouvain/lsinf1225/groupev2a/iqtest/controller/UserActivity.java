@@ -1,5 +1,6 @@
 package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -104,9 +105,15 @@ public class UserActivity extends AppCompatActivity {
             pressed = true;
         }else{
             /* Disconnect the user and get back to MainActivity */
-            User.loggedUser = null;
-            Utils.changeActivity(getApplicationContext(), MainActivity.class);
+            disconnect(getApplicationContext());
             finish();
         }
+    }
+
+    public static void disconnect(Context appcontext){
+        User.loggedUser = null;
+        GameActivity.game = null;
+        GameActivity.answersTable = null;
+        Utils.changeActivity(appcontext, MainActivity.class);
     }
 }
