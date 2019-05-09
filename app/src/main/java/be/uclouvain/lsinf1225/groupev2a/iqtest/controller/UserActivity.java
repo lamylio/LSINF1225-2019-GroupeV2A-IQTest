@@ -1,13 +1,14 @@
 package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.concurrent.Executors;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
@@ -44,7 +45,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void updateUI(){
-        AsyncTask.execute(new Runnable() {
+        Executors.newCachedThreadPool().submit(new Runnable() {
             @Override
             public void run() {
                 Utils.sendLog(this.getClass(), "Retrieved logged user : " + User.loggedUser.getUsername());
@@ -56,13 +57,14 @@ public class UserActivity extends AppCompatActivity {
 
                 /* Database interactions */
                 Game[] games = DatabaseHelper.INSTANCE.gameDao().findByPlayer(User.loggedUser.getUsername());
-                if(games != null && games.length > 0) unfinished_results = DatabaseHelper.INSTANCE.resultDao().getUnrespondedResultsFromGame(games[games.length-1].getGame_id());
+                if (games != null && games.length > 0)
+                    unfinished_results = DatabaseHelper.INSTANCE.resultDao().getUnrespondedResultsFromGame(games[games.length - 1].getGame_id());
 
                 /* Update the UI with retrieved data */
                 text_username.setText(User.loggedUser.getUsername());
                 text_remaining.setText(games.length + (games.length > 1 ? " parties" : " partie"));
 
-                if(unfinished_results != null && unfinished_results.length > 0){
+                if (unfinished_results != null && unfinished_results.length > 0) {
                     button_play.setText(getText(R.string.profile_continue));
                     text_remaining.setText("Il vous reste " + unfinished_results.length + (unfinished_results.length > 1 ? " questions" : " question"));
                 }

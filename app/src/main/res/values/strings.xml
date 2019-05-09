@@ -16,7 +16,7 @@
     <string name="CANNOT_BACK">Quitter vous fera perdre cette question</string>
 
     <string name="TIMEOUT">Temps écoulé ! Question suivante</string>
-    <string name="UNAVAILABLE">Fonctionnalité pas encore disponible..</string>
+    <string name="NOT_IMPLEMENTED_YET">Fonctionnalité pas encore disponible..</string>
 
     <!-- User common strings -->
     <string name="USERNAME">Pseudo</string>

@@ -28,46 +28,43 @@
         app:layout_constraintVertical_bias="0.088" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/history_buttonNormal"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:onClick="updateHistory"
         android:text="@string/mode_normal"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintEnd_toStartOf="@+id/history_buttonSpeed"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/historique" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/history_buttonSpeed"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:onClick="updateHistory"
         android:text="@string/mode_speed"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
-        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/history_buttonFriends"
+        app:layout_constraintStart_toEndOf="@+id/history_buttonNormal"
         app:layout_constraintTop_toBottomOf="@+id/historique" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/history_buttonFriends"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:onClick="updateHistory"
         android:text="@string/history_friends"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/history_buttonSpeed"
         app:layout_constraintTop_toBottomOf="@+id/historique" />
     <ImageView
         android:id="@+id/imageView"
@@ -112,6 +109,7 @@
         app:layout_constraintTop_toTopOf="@+id/header_appname" />
 
     <TableLayout
+        android:id="@+id/history_table"
         android:layout_width="395dp"
         android:layout_height="467dp"
         android:layout_marginStart="8dp"
@@ -123,46 +121,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6"
+        app:layout_constraintTop_toBottomOf="@+id/history_buttonSpeed"
         app:layout_constraintVertical_bias="1.0">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/history_row1"
-
-
-            />
-
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/history_row2"
-
-
-            />
-
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/history_row3"
-
-            />
-
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/history_row4"
-
-            />
-
-        <TableRow
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/history_row5"
-
-
-            />
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

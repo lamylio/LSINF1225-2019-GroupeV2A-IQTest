@@ -18,5 +18,13 @@ public interface AnswerDao {
             "AND A.ans_id = R.ans_id ")
     Answer[] getAnswersFromGame(int game_id);
 
+    @Query("SELECT COUNT(A.ans_id) " +
+            "FROM ANSWERS A, RESULTS R " +
+            "WHERE R.game_id = :game_id " +
+            "AND A.quest_id = R.quest_id " +
+            "AND A.ans_id = R.ans_id " +
+            "AND A.isCorrect = 1")
+    int howManyCorrectAnswersFromGame(int game_id);
+
 }
 
