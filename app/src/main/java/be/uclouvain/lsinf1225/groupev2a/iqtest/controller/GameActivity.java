@@ -148,7 +148,9 @@ public class GameActivity extends AppCompatActivity {
 
                             answersTable.put(question, answers);
                         }
-                    Utils.changeActivity(getApplicationContext(), QuestionActivity.class); finish();
+                        if(answersTable.size() > 0)
+                        {Utils.changeActivity(getApplicationContext(), QuestionActivity.class); finish();}
+                        else Utils.gimmeToast(getApplicationContext(), "Aucune question disponible.");
                 }
             });
     }

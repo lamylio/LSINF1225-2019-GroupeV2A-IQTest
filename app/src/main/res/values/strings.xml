@@ -81,7 +81,7 @@
     <string name="warning">Attention</string>
     <string name="mode_footer">Vous ne disposez que d\'une minute par énigme. Passé ce délais, l\'épreuve sera considérée comme échouée. Il en va de même si vous quittez l\'application.</string>
 
-    <string name="mode_multiplayer_description">Ce mode de jeu a pour vocation de confronter vos amis. </string>
+    <string name="mode_multiplayer_description">Ce mode de jeu vous permet de vous amuser tout en vous confrontant à vos amis.</string>
     <string name="mode_speed_description">Ce mode de jeu a pour vocation de  vous amuser ou de vous échauffer mentalement avant un test réel. </string>
     <string name="mode_normal_description">Ce mode de jeu est le véritable test de QI, vous disposez de 40 minutes pour le réaliser. Après quoi votre QI vous sera donné. </string>
     <string name="mode_logique_description">Mode logique</string>

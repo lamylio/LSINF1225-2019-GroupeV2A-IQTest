@@ -10,9 +10,10 @@
     <Button
         android:id="@+id/choose_numeriqueButton"
         android:layout_width="270dp"
-        android:layout_height="60dp"
+        android:layout_height="0dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/whiteborder"
         android:onClick="onModeClick"
         android:text="@string/mode_numerique"
@@ -24,9 +25,10 @@
     <Button
         android:id="@+id/choose_spatialButton"
         android:layout_width="270dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/whiteborder"
         android:onClick="onModeClick"
         android:text="@string/mode_spatial"
@@ -38,31 +40,17 @@
     <Button
         android:id="@+id/choose_verbalButton"
         android:layout_width="270dp"
-        android:layout_height="60dp"
+        android:layout_height="0dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="48dp"
         android:background="@drawable/whiteborder"
         android:onClick="onModeClick"
         android:text="@string/mode_verbal"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/categories_5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/choose_spatialButton" />
-
-    <Button
-        android:id="@+id/categories_5"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/whiteborder"
-        android:onClick="onModeClick"
-        android:text="@string/category_5"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choose_verbalButton" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -125,9 +113,10 @@
     <Button
         android:id="@+id/choose_logiqueButton"
         android:layout_width="270dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/whiteborder"
         android:onClick="onModeClick"
         android:text="@string/mode_logique"
@@ -135,18 +124,6 @@
         app:layout_constraintBottom_toTopOf="@+id/choose_numeriqueButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mode_title" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="24dp"
-        android:contentDescription="@string/LOGO"
-        app:layout_constraintBottom_toBottomOf="@+id/categories_5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/categories_5"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_menu_mapmode" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

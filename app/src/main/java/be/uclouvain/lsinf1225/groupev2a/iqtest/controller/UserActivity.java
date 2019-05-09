@@ -24,6 +24,10 @@ public class UserActivity extends AppCompatActivity {
     boolean pressed = false;
     protected static Result[] unfinished_results = null;
 
+    TextView text_username;
+    TextView text_remaining;
+    Button button_play;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,22 +55,29 @@ public class UserActivity extends AppCompatActivity {
                 Utils.sendLog(this.getClass(), "Retrieved logged user : " + User.loggedUser.getUsername());
 
                 /* UI Elements which need to be updated */
-                TextView text_username = findViewById(R.id.profile_username);
-                TextView text_remaining = findViewById(R.id.profile_remaining);
-                Button button_play = findViewById(R.id.profile_buttonPlay);
+                text_username = findViewById(R.id.profile_username);
+                text_remaining = findViewById(R.id.profile_remaining);
+                button_play = findViewById(R.id.profile_buttonPlay);
 
                 /* Database interactions */
-                Game[] games = DatabaseHelper.INSTANCE.gameDao().findByPlayer(User.loggedUser.getUsername());
+                final Game[] games = DatabaseHelper.INSTANCE.gameDao().findByPlayer(User.loggedUser.getUsername());
                 if(games != null && games.length > 0) unfinished_results = DatabaseHelper.INSTANCE.resultDao().getUnrespondedResultsFromGame(games[games.length-1].getGame_id());
 
                 /* Update the UI with retrieved data */
-                text_username.setText(User.loggedUser.getUsername());
-                text_remaining.setText(games.length + (games.length > 1 ? " parties" : " partie"));
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        text_username.setText(User.loggedUser.getUsername());
+                        text_remaining.setText(games.length + (games.length > 1 ? " parties" : " partie"));
 
-                if(unfinished_results != null && unfinished_results.length > 0){
-                    button_play.setText(getText(R.string.profile_continue));
-                    text_remaining.setText("Il vous reste " + unfinished_results.length + (unfinished_results.length > 1 ? " questions" : " question"));
-                }
+                        if(unfinished_results != null && unfinished_results.length > 0){
+                            button_play.setText(getText(R.string.profile_continue));
+                            text_remaining.setText("Il vous reste " + unfinished_results.length + (unfinished_results.length > 1 ? " questions" : " question"));
+                        }
+                    }
+                });
+
+
 
             }
         });

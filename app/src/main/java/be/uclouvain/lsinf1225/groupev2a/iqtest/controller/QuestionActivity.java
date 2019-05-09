@@ -127,6 +127,7 @@ public class QuestionActivity extends AppCompatActivity {
                     Utils.sendLog(this.getClass(), answer.getQuest_id() + " / " + answer.getAns_id() + " | " + answer.getAnswer() + " : " + answer.isCorrect());
                 }
                 */
+
                 DatabaseHelper.INSTANCE.gameDao().updateGameEndTime(GameActivity.game.getGame_id(), Utils.dateFormated());
                 int correct = DatabaseHelper.INSTANCE.answerDao().howManyCorrectAnswersFromGame(GameActivity.game.getGame_id());
                 score = findViewById(R.id.results_score);
