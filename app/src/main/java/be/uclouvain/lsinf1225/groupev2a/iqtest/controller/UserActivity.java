@@ -83,6 +83,9 @@ public class UserActivity extends AppCompatActivity {
         Utils.changeActivity(getApplicationContext(), SettingsActivity.class);
         finish();
     }
+    public void onClickAddFriendButton(View view){
+        setContentView(R.layout.activity_addfriend);
+    }
 
     @Override
     protected void onResume() {
@@ -100,13 +103,17 @@ public class UserActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         /* Ask for confirmation, in case of missclick */
-        if(!pressed){
-            Utils.gimmeToast(getApplicationContext(), getText(R.string.SURE_DISCONNECT).toString());
-            pressed = true;
-        }else{
-            /* Disconnect the user and get back to MainActivity */
-            disconnect(getApplicationContext());
-            finish();
+        if(getCurrentFocus() != findViewById(R.id.activity_addfriend)){
+            setContentView(R.layout.activity_profile);
+        }else {
+            if(!pressed){
+                Utils.gimmeToast(getApplicationContext(), getText(R.string.SURE_DISCONNECT).toString());
+                pressed = true;
+            }else{
+                /* Disconnect the user and get back to MainActivity */
+                disconnect(getApplicationContext());
+                finish();
+            }
         }
     }
 
