@@ -22,6 +22,7 @@
     <string name="FRIEND_INVITED">Demande d\'ajout d\'ami envoyée</string>
     <string name="ALREADY_FRIEND">Vous êtes déjà ami avec %username%</string>
     <string name="ALREADY_INVITED">Demande déjà envoyée, en attente..</string>
+    <string name="MYSELF_INVITED">Vous ne pouvez pas vous inviter en ami</string>
 
     <!-- User common strings -->
     <string name="USERNAME">Pseudo</string>

@@ -110,17 +110,23 @@ public class UserActivity extends AppCompatActivity {
                    Utils.gimmeToast(getApplicationContext(), getText(R.string.INEXISTANT_USER).toString());
                    return;
                }
+               else if (target.getUsername() == User.loggedUser.getUsername()){
+                    Utils.gimmeToast(getApplicationContext(), getText(R.string.MYSELF_INVITED).toString());
+                    return;
+                }
                Friend check = DatabaseHelper.INSTANCE.friendDao().findByUsername(User.loggedUser.getUsername());
-               if (check == null){
+               if (check != null){
+                   if (check.getStatus() == 0){
+                       Utils.gimmeToast(getApplicationContext(), getText(R.string.ALREADY_INVITED).toString());
+                       return;
+                   }else{
+                       Utils.gimmeToast(getApplicationContext(), getText(R.string.ALREADY_FRIEND).toString().replace("%username%", target.getUsername()));
+                       return;
+                   }
+               }else{
                    Friend friendship = new Friend(User.loggedUser.getUsername(), friendName.getText().toString());
                    DatabaseHelper.INSTANCE.friendDao().insertFriendship(friendship);
                    Utils.gimmeToast(getApplicationContext(), getText(R.string.FRIEND_INVITED).toString());
-               }else{
-                   if (check.getStatus() == 0){
-                       Utils.gimmeToast(getApplicationContext(), getText(R.string.ALREADY_INVITED).toString());
-                   }else{
-                       Utils.gimmeToast(getApplicationContext(), getText(R.string.ALREADY_FRIEND).toString().replace("%username%", target.getUsername()));
-                   }
                }
             }
         });
