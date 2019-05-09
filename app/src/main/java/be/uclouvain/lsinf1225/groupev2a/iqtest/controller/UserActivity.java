@@ -110,7 +110,7 @@ public class UserActivity extends AppCompatActivity {
                    Utils.gimmeToast(getApplicationContext(), getText(R.string.INEXISTANT_USER).toString());
                    return;
                }
-               else if (target.getUsername() == User.loggedUser.getUsername()){
+               else if (target.getUsername().equals(User.loggedUser.getUsername())){
                     Utils.gimmeToast(getApplicationContext(), getText(R.string.MYSELF_INVITED).toString());
                     return;
                 }
@@ -127,6 +127,7 @@ public class UserActivity extends AppCompatActivity {
                    Friend friendship = new Friend(User.loggedUser.getUsername(), friendName.getText().toString());
                    DatabaseHelper.INSTANCE.friendDao().insertFriendship(friendship);
                    Utils.gimmeToast(getApplicationContext(), getText(R.string.FRIEND_INVITED).toString());
+                   Utils.changeActivity(getApplicationContext(), UserActivity.class);
                }
             }
         });
@@ -136,8 +137,7 @@ public class UserActivity extends AppCompatActivity {
         }catch (InterruptedException e){
             Log.e("IQW/UserActivity", e.getMessage());
         }
-        setContentView(R.layout.activity_profile);
-        updateUI();
+
     }
 
     /* ----- ----- */
