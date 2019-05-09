@@ -42,6 +42,7 @@
     <string name="profile_continue">REPRENDRE</string>
     <string name="profile_history">Historique</string>
     <string name="profile_settings">Paramètres</string>
+    <string name="profile_addFriend">Ajouter un ami</string>
 
     <!-- ChooseMode -->
     <string name="mode">Mode</string>
@@ -75,9 +76,9 @@
     <string name="warning">Attention</string>
     <string name="mode_footer">Vous ne disposez que d\'une minute par énigme. Passé ce délais, l\'épreuve sera considérée comme échouée. Il en va de même si vous quittez l\'application.</string>
 
-    <string name="mode_multiplayer_description">Blabla multijoueur.. à faire</string>
+    <string name="mode_multiplayer_description">Ce mode de jeu a pour vocation de confronter vos amis. </string>
     <string name="mode_speed_description">Ce mode de jeu a pour vocation de  vous amuser ou de vous échauffer mentalement avant un test réel. </string>
-    <string name="mode_normal_description">Petite description du quizz, avec les différentes catégories blabla.. à faire</string>
+    <string name="mode_normal_description">Ce mode de jeu est le véritable test de QI, vous disposez de 40 minutes pour le réaliser. Après quoi votre QI vous sera donné. </string>
     <string name="mode_logique_description">Mode logique</string>
     <string name="mode_numerique_description">Mode numérique</string>
     <string name="mode_spatial_description">Mode spatial</string>
@@ -86,5 +87,10 @@
     <string name="mode_time_5">5\"</string>
     <string name="mode_time_40">40\"</string>
     <string name="game_start">C\'est parti !</string>
+
+    <!-- addFriendActivity -->
+    <string name="friend_pseudoText">Entrez le pseudo de votre ami</string>
+    <string name="friend_buttonText">Ajouter</string>
+    <string name="friend_headerText">Ajouter un ami</string>
 
 </resources>
