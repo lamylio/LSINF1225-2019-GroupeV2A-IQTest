@@ -2,19 +2,19 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.concurrent.Executors;
-
 import be.uclouvain.lsinf1225.groupev2a.iqtest.R;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.Utils;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.HistoryActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.controller.user.SettingsActivity;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.DatabaseHelper;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Friend;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Game;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Result;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
@@ -45,7 +45,7 @@ public class UserActivity extends AppCompatActivity {
     }
 
     private void updateUI(){
-        Executors.newCachedThreadPool().submit(new Runnable() {
+        Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
                 Utils.sendLog(this.getClass(), "Retrieved logged user : " + User.loggedUser.getUsername());
@@ -57,20 +57,20 @@ public class UserActivity extends AppCompatActivity {
 
                 /* Database interactions */
                 Game[] games = DatabaseHelper.INSTANCE.gameDao().findByPlayer(User.loggedUser.getUsername());
-                if (games != null && games.length > 0)
-                    unfinished_results = DatabaseHelper.INSTANCE.resultDao().getUnrespondedResultsFromGame(games[games.length - 1].getGame_id());
+                if(games != null && games.length > 0) unfinished_results = DatabaseHelper.INSTANCE.resultDao().getUnrespondedResultsFromGame(games[games.length-1].getGame_id());
 
                 /* Update the UI with retrieved data */
                 text_username.setText(User.loggedUser.getUsername());
                 text_remaining.setText(games.length + (games.length > 1 ? " parties" : " partie"));
 
-                if (unfinished_results != null && unfinished_results.length > 0) {
+                if(unfinished_results != null && unfinished_results.length > 0){
                     button_play.setText(getText(R.string.profile_continue));
                     text_remaining.setText("Il vous reste " + unfinished_results.length + (unfinished_results.length > 1 ? " questions" : " question"));
                 }
 
             }
         });
+        t.start();
     }
 
     public void onClickPlayButton(View view){
@@ -88,6 +88,42 @@ public class UserActivity extends AppCompatActivity {
     public void onClickAddFriendButton(View view){
         setContentView(R.layout.activity_addfriend);
     }
+
+    protected void addNewFriend(View view){
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+               TextView friendName = findViewById(R.id.friend_username);
+               User target = DatabaseHelper.INSTANCE.userDao().findByName(friendName.getText().toString());
+               if(target == null) {
+                   Utils.gimmeToast(getApplicationContext(), getText(R.string.INEXISTANT_USER).toString());
+                   return;
+               }
+               Friend check = DatabaseHelper.INSTANCE.friendDao().findByUsername(User.loggedUser.getUsername());
+               if (check == null){
+                   Friend friendship = new Friend(User.loggedUser.getUsername(), friendName.getText().toString());
+                   DatabaseHelper.INSTANCE.friendDao().insertFriendship(friendship);
+                   Utils.gimmeToast(getApplicationContext(), getText(R.string.FRIEND_INVITED).toString());
+               }else{
+                   if (check.getStatus() == 0){
+                       Utils.gimmeToast(getApplicationContext(), getText(R.string.ALREADY_INVITED).toString());
+                   }else{
+                       Utils.gimmeToast(getApplicationContext(), getText(R.string.ALREADY_FRIEND).toString().replace("%username%", target.getUsername()));
+                   }
+               }
+            }
+        });
+        t.start();
+        try{
+            t.join();
+        }catch (InterruptedException e){
+            Log.e("IQW/UserActivity", e.getMessage());
+        }
+        setContentView(R.layout.activity_profile);
+        updateUI();
+    }
+
+    /* ----- ----- */
 
     @Override
     protected void onResume() {
@@ -107,6 +143,7 @@ public class UserActivity extends AppCompatActivity {
         /* Ask for confirmation, in case of missclick */
         if(getCurrentFocus() != findViewById(R.id.activity_addfriend)){
             setContentView(R.layout.activity_profile);
+            updateUI();
         }else {
             if(!pressed){
                 Utils.gimmeToast(getApplicationContext(), getText(R.string.SURE_DISCONNECT).toString());

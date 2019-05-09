@@ -9,6 +9,7 @@
     <string name="INVALID_USER">Utilisateur introuvable</string>
 
     <string name="USED_USERNAME">Nom d\'utilisateur déjà emprunté</string>
+    <string name="INEXISTANT_USER">Ce joueur n\'existe pas</string>
     <string name="REGISTER_SUCCESS">Inscription réussie</string>
 
     <string name="NOT_LOGGED">Merci de vous (re)connecter</string>
@@ -17,6 +18,10 @@
 
     <string name="TIMEOUT">Temps écoulé ! Question suivante</string>
     <string name="NOT_IMPLEMENTED_YET">Fonctionnalité pas encore disponible..</string>
+
+    <string name="FRIEND_INVITED">Demande d\'ajout d\'ami envoyée</string>
+    <string name="ALREADY_FRIEND">Vous êtes déjà ami avec %username%</string>
+    <string name="ALREADY_INVITED">Demande déjà envoyée, en attente..</string>
 
     <!-- User common strings -->
     <string name="USERNAME">Pseudo</string>

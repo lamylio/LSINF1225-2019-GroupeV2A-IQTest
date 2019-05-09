@@ -4,11 +4,13 @@ import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.AnswerDao;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.FriendDao;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.GameDao;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.QuestDao;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.ResultDao;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.dao.UserDao;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Answer;
+import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Friend;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Game;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Question;
 import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.Result;
@@ -22,7 +24,8 @@ import be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table.User;
             Game.class,
             Question.class,
             Answer.class,
-            Result.class
+            Result.class,
+            Friend.class
         })
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -31,4 +34,5 @@ public abstract class AppDatabase extends RoomDatabase {
     abstract public QuestDao questDao();
     abstract public AnswerDao answerDao();
     abstract public ResultDao resultDao();
+    abstract public FriendDao friendDao();
 }
