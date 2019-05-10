@@ -96,7 +96,7 @@
 
 
     <TextView
-        android:id="@+id/mode_title"
+        android:id="@+id/addfriend_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -123,7 +123,7 @@
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/choose_numeriqueButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mode_title" />
+        app:layout_constraintTop_toBottomOf="@+id/addfriend_title" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

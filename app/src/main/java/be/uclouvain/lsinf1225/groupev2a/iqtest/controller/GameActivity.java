@@ -51,7 +51,7 @@ public class GameActivity extends AppCompatActivity {
     String mode;
     private void updateUI(View view){
         mode_id = view.getId();
-        TextView mode_title = findViewById(R.id.mode_title);
+        TextView mode_title = findViewById(R.id.addfriend_title);
         TextView mode_description = findViewById(R.id.mode_description);
         TextView mode_time = findViewById(R.id.mode_time);
 
