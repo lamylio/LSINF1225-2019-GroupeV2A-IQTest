@@ -31,7 +31,7 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
 
         table = findViewById(R.id.history_table);
-        updateUI(null, 10);
+        updateUI(null, 100);
     }
 
     private Activity getActivity(){return this;}
@@ -53,6 +53,7 @@ public class HistoryActivity extends AppCompatActivity {
 
                     TableRow row = new TableRow(getActivity());
                     row.setLayoutParams(new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    row.setPadding(0, 10, 0, 10);
                     rows[i] = row;
 
                     TextView[] columns = new TextView[3];
@@ -66,8 +67,8 @@ public class HistoryActivity extends AppCompatActivity {
                         Utils.sendLog(this.getClass(), i + " : " + j);
                     }
                     columns[0].setText(games[i].getEnd_time());
-                    columns[1].setText((int) ((score/score_max) *100) + " %");
-                    columns[2].setText("[AFFICHER]");
+                    columns[1].setText(games[i].getType().toUpperCase());
+                    columns[2].setText((int) ((score/score_max) *100) + " %");
                 }
             }
         });

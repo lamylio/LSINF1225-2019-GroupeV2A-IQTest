@@ -106,7 +106,6 @@ public class GameActivity extends AppCompatActivity {
 
     public void onMultiplayersCLick(View v){Utils.gimmeToast(getApplicationContext(), getText(R.string.NOT_IMPLEMENTED_YET).toString());}
     public void onCategoriesClick(View v){setContentView(R.layout.activity_category);}
-    public void results(View view){setContentView(R.layout.activity_results);}
 
     /* ----- NEW GAME ----- */
 

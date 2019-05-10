@@ -114,7 +114,7 @@ public class UserActivity extends AppCompatActivity {
                     Utils.gimmeToast(getApplicationContext(), getText(R.string.MYSELF_INVITED).toString());
                     return;
                 }
-               Friend check = DatabaseHelper.INSTANCE.friendDao().findByUsername(User.loggedUser.getUsername());
+               Friend check = DatabaseHelper.INSTANCE.friendDao().areTheyFriends(User.loggedUser.getUsername(), target.getUsername());
                if (check != null){
                    if (check.getStatus() == 0){
                        Utils.gimmeToast(getApplicationContext(), getText(R.string.ALREADY_INVITED).toString());

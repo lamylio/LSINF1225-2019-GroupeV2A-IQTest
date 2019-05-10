@@ -29,11 +29,13 @@ public class QuestionActivity extends AppCompatActivity {
 
     TextView time;
     TextView questionStatement;
+    TextView questionNumber;
 
     TextView score;
 
     CountDownTimer timer;
     int index = 0;
+    int nbQuestions = 0;
 
     boolean finished;
 
@@ -44,6 +46,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         time  = findViewById(R.id.question_timer);
         questionStatement = findViewById(R.id.question_statement);
+        questionNumber = findViewById(R.id.question_number);
 
         choices[0] = findViewById(R.id.question_ans_1);
         choices[1] = findViewById(R.id.question_ans_2);
@@ -65,6 +68,7 @@ public class QuestionActivity extends AppCompatActivity {
     private void showQuestion(){
         if(!iterator.hasNext()) throw new Error("showQuestion called but iterator has not more element.");
 
+        index++;
         question = iterator.next();
         answers = GameActivity.answersTable.get(question);
         Utils.sendLog(this.getClass(), question.getStatement() + "(" + question.getQuest_id() + ")");
@@ -76,6 +80,8 @@ public class QuestionActivity extends AppCompatActivity {
         choices[1].setText(answers[1].getAnswer());
         choices[2].setText(answers[2].getAnswer());
         choices[3].setText(answers[3].getAnswer());
+
+        questionNumber.setText(index + " / " + GameActivity.answersTable.size());
 
         resetCountdown();
     }
@@ -116,23 +122,21 @@ public class QuestionActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                /*
-                Si on veut avoir les réponses détaillées une par une :)
 
                 Answer[] answers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromGame(GameActivity.game.getGame_id());
                 if(answers == null) throw new Error("Erreur récupération des answers d'une game");
                 int i = 0;
-                for (Answer answer : answers) {
-                    if(answer.isCorrect()) i++;
-                    Utils.sendLog(this.getClass(), answer.getQuest_id() + " / " + answer.getAns_id() + " | " + answer.getAnswer() + " : " + answer.isCorrect());
-                }
-                */
 
-                DatabaseHelper.INSTANCE.gameDao().updateGameEndTime(GameActivity.game.getGame_id(), Utils.dateFormated());
-                int correct = DatabaseHelper.INSTANCE.answerDao().howManyCorrectAnswersFromGame(GameActivity.game.getGame_id());
+                for(Answer ans : answers){
+                    if(ans.isCorrect()) i++;
+
+                }
+
                 score = findViewById(R.id.results_score);
-                score.setText("Vous avez " + correct + " bonne(s) réponse(s)");
+                score.setText("Vous avez " + i + " bonne(s) réponse(s) sur " + answers.length + " questions");
                 score.refreshDrawableState();
+
+
             }
         }).start();
 
@@ -168,6 +172,7 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void run() {
                 DatabaseHelper.INSTANCE.resultDao().updateResult(GameActivity.game.getGame_id(), question.getQuest_id(), ans_id);
+                DatabaseHelper.INSTANCE.gameDao().updateGameEndTime(GameActivity.game.getGame_id(), Utils.dateFormated());
                 Utils.sendLog(this.getClass(), "quest_id : " + question.getQuest_id() + " / ans_id : " + ans_id);
             }
 
