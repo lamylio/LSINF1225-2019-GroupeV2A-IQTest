@@ -74,6 +74,12 @@
     <string name="settings_volume">Volume</string>
     <string name="settings">Paramètres</string>
     <string name="settings_mdp">Changer le mot de passe</string>
+    <string name="change_mdp">Changer le mot de passe</string>
+    <string name="changemdp_subtitle1">Mot de passe actuel</string>
+    <string name="changemdp_subtitle2">Introduire le nouveau mot de passe</string>
+    <string name="changemdp_subtitle3">Confirmer le nouveau mot de passe</string>
+
+
 
     <!-- GameActivity -->
     <string name="Suivant">Suivant</string>
