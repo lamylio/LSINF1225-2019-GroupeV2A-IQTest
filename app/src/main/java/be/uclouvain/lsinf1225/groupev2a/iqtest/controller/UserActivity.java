@@ -96,9 +96,17 @@ public class UserActivity extends AppCompatActivity {
         Utils.changeActivity(getApplicationContext(), SettingsActivity.class);
         finish();
     }
-    public void onClickAddFriendButton(View view){
+
+    public void onClickMyFriendButton(View view){
+        setContentView(R.layout.activity_myfriends);
+    }
+
+    public void onClickAddFriend(View view){
         setContentView(R.layout.activity_addfriend);
     }
+
+
+
 
     protected void addNewFriend(View view){
         Thread t = new Thread(new Runnable() {
@@ -158,10 +166,12 @@ public class UserActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         /* Ask for confirmation, in case of missclick */
-        if(getCurrentFocus() != findViewById(R.id.activity_addfriend)){
+        if(getCurrentFocus() != findViewById(R.id.activity_myfriends)){
             setContentView(R.layout.activity_profile);
             updateUI();
-        }else {
+        }else if (getCurrentFocus() != findViewById(R.id.activity_addfriend)){
+            setContentView(R.layout.activity_myfriends);
+        }else{
             if(!pressed){
                 Utils.gimmeToast(getApplicationContext(), getText(R.string.SURE_DISCONNECT).toString());
                 pressed = true;
