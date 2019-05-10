@@ -20,5 +20,7 @@ public interface UserDao {
     @Insert
     void registerUser(User user);
 
+    @Query("UPDATE USERS SET password = :hashed_password WHERE username = :username")
+    void updatePassword(String username, String hashed_password);
 }
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
@@ -33,6 +34,10 @@ public class SettingsActivity extends Activity {
     public void onBackPressed() {
         Utils.changeActivity(getApplicationContext(), UserActivity.class);
         finish();
+    }
+
+    protected void onClickChangePassword(View view){
+
     }
 
     private void initControls() {
