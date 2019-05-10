@@ -13,7 +13,7 @@ public interface FriendDao {
     void insertFriendship(Friend friendship);
 
     @Query("SELECT * FROM FRIENDS WHERE user1 LIKE :username")
-    Friend findByUsername(String username);
+    Friend[] findByUsername(String username);
 
     @Query("SELECT * FROM FRIENDS WHERE user1 LIKE :user1 AND user2 LIKE :user2")
     Friend areTheyFriends(String user1, String user2);

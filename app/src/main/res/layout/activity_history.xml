@@ -27,13 +27,16 @@
 
     <Button
         android:id="@+id/history_buttonNormal"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/whiteborder"
         android:onClick="updateHistory"
         android:text="@string/mode_normal"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/history_buttonSpeed"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,8 +49,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/whiteborder"
         android:onClick="updateHistory"
         android:text="@string/mode_speed"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/history_buttonFriends"
         app:layout_constraintStart_toEndOf="@+id/history_buttonNormal"
         app:layout_constraintTop_toBottomOf="@+id/historique" />
@@ -59,8 +64,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/whiteborder"
         android:onClick="updateHistory"
         android:text="@string/history_friends"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/history_buttonSpeed"
         app:layout_constraintTop_toBottomOf="@+id/historique" />
@@ -128,6 +135,15 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:stretchColumns="*">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/NO_GAME_PLAYED"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
         </TableLayout>
     </ScrollView>

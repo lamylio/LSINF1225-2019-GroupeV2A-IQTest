@@ -31,20 +31,20 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
 
         table = findViewById(R.id.history_table);
-        updateUI(null, 100);
+        updateUI(null, 100, 2);
     }
 
     private Activity getActivity(){return this;}
 
-    private void updateUI(final String type, final int limit){
+    private void updateUI(final String type, final int rows_max, final int columns_max){
 
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                if(type == null) games = DatabaseHelper.INSTANCE.gameDao().findLastGamesByPlayer(User.loggedUser.getUsername(), limit);
-                else games = DatabaseHelper.INSTANCE.gameDao().findLastGamesByPlayerAndType(User.loggedUser.getUsername(), type, limit);
+                if(type == null) games = DatabaseHelper.INSTANCE.gameDao().findLastGamesByPlayer(User.loggedUser.getUsername(), rows_max);
+                else games = DatabaseHelper.INSTANCE.gameDao().findLastGamesByPlayerAndType(User.loggedUser.getUsername(), type, rows_max);
 
-                rows = new TableRow[games.length];
+                HistoryActivity.this.rows = new TableRow[games.length];
                 Utils.sendLog(this.getClass(), games.length+" games");
                 for (int i = 0; i < games.length; i++) {
 
@@ -54,9 +54,9 @@ public class HistoryActivity extends AppCompatActivity {
                     TableRow row = new TableRow(getActivity());
                     row.setLayoutParams(new TableRow.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     row.setPadding(0, 10, 0, 10);
-                    rows[i] = row;
+                    HistoryActivity.this.rows[i] = row;
 
-                    TextView[] columns = new TextView[3];
+                    TextView[] columns = new TextView[columns_max];
                     for (int j = 0; j < columns.length; j++) {
                         TextView text = new TextView(getActivity());
                         text.setTextColor(getResources().getColor(R.color.white));
@@ -67,8 +67,8 @@ public class HistoryActivity extends AppCompatActivity {
                         Utils.sendLog(this.getClass(), i + " : " + j);
                     }
                     columns[0].setText(games[i].getEnd_time());
-                    columns[1].setText(games[i].getType().toUpperCase());
-                    columns[2].setText((int) ((score/score_max) *100) + " %");
+                    columns[1].setText((int) ((score/score_max) *100) + " %");
+                    // TODO: columns[2].setText("[AFFICHER]");
                 }
             }
         });
@@ -79,10 +79,10 @@ public class HistoryActivity extends AppCompatActivity {
             Log.e("IQW/HistoryActivity", e.getMessage());
         }
 
-        Utils.sendLog(this.getClass(), rows.length + " rows");
+        Utils.sendLog(this.getClass(), this.rows.length + " rows");
 
-        table.removeAllViews();
-        for(TableRow row : rows){
+        if(games != null && games.length > 0) table.removeAllViews();
+        for(TableRow row : this.rows){
             table.addView(row);
             Utils.sendLog(this.getClass(), row.getId() + "");
         }
@@ -91,17 +91,16 @@ public class HistoryActivity extends AppCompatActivity {
     protected void updateHistory(View view){
         switch (view.getId()){
             case R.id.history_buttonNormal:
-                updateUI("normal", 10);
+                updateUI("normal", 10, 2);
                 break;
             case R.id.history_buttonSpeed:
-                updateUI("speed", 10);
+                updateUI("speed", 10, 2);
                 break;
             case R.id.history_buttonFriends:
                 Utils.gimmeToast(getApplicationContext(), getText(R.string.NOT_IMPLEMENTED_YET).toString());
                 break;
         }
     }
-
 
     @Override
     public void onBackPressed() {

@@ -18,11 +18,16 @@
 
     <string name="TIMEOUT">Temps écoulé ! Question suivante</string>
     <string name="NOT_IMPLEMENTED_YET">Fonctionnalité pas encore disponible..</string>
+    <string name="NO_GAME_PLAYED">Aucun historique.. Il faut d\'abord jouer une partie ;)</string>
 
     <string name="FRIEND_INVITED">Demande d\'ajout d\'ami envoyée</string>
     <string name="ALREADY_FRIEND">Vous êtes déjà ami avec %username%</string>
     <string name="ALREADY_INVITED">Demande déjà envoyée, en attente..</string>
     <string name="MYSELF_INVITED">Vous ne pouvez pas vous inviter en ami</string>
+
+    <string name="WAITING">En attente..</string>
+    <string name="FRIENDS">Amis</string>
+    <string name="FIGHT">Affronter</string>
 
     <!-- User common strings -->
     <string name="USERNAME">Pseudo</string>
