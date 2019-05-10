@@ -48,7 +48,7 @@
     <string name="profile_continue">REPRENDRE</string>
     <string name="profile_history">Historique</string>
     <string name="profile_settings">Paramètres</string>
-    <string name="onClickMyFriendButton">Mes amis</string>onClickMyFriendButton
+    <string name="profile_myfriends">Mes amis</string>
 
     <!-- ChooseMode -->
     <string name="mode">Mode</string>
@@ -102,5 +102,6 @@
     <!-- myFriendsActivity -->
     <string name="myfriend_headerText">Mes amis</string>
     <string name="myfriend_addFriend">Ajouter un ami</string>
+
 
 </resources>

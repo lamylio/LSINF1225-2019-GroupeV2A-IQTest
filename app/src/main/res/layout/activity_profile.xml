@@ -92,19 +92,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/whiteborder"
         android:onClick="onClickSettingsButton"
         android:text="@string/settings"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profile_buttonHistory"
-        app:layout_constraintTop_toBottomOf="@+id/profile_buttonPlay" />
+        app:layout_constraintStart_toEndOf="@+id/profile_buttonHistory" />
 
     <Button
         android:id="@+id/profile_buttonPlay"
@@ -161,19 +159,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/whiteborder"
         android:onClick="onClickHistoryButton"
         android:text="@string/profile_history"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toStartOf="@+id/profile_buttonSettings"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_buttonPlay" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <Button
@@ -181,17 +177,18 @@
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="48dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/whiteborder"
-        android:text="@string/myfriend_addFriend"
-        android:textAllCaps="false"
         android:onClick="onClickMyFriendButton"
+        android:text="@string/profile_myfriends"
+        android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_buttonHistory" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
