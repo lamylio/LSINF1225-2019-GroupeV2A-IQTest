@@ -4,25 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    android:id="@+id/activity_addfriend">
-
-    <Button
-        android:id="@+id/friend_button"
-        android:layout_width="123dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="224dp"
-        android:background="@drawable/whiteborder"
-        android:clickable="true"
-        android:onClick="addNewFriend"
-        android:text="@string/addfriend_buttonText"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/friend_username" />
+    android:id="@+id/activity_myfriends">
 
     <ImageView
         android:id="@+id/imageView"
@@ -32,7 +14,6 @@
         android:background="@android:color/white"
         android:contentDescription="@string/APP_NAME"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/header_appname"
@@ -48,20 +29,6 @@
         app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/mode_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/addfriend_addheaderText"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 
 
@@ -80,38 +47,51 @@
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/header_appname" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="416dp"
-        android:gravity="center"
-        android:text="@string/addfriend_pseudoText"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/whiteborder"
+        android:onClick="onClickAddFriend"
+        android:text="@string/myfriend_addFriend"
+        android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/friend_username"
+    <TextView
+        android:id="@+id/profile_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/white"
-        android:ems="10"
-        android:gravity="center_horizontal|center_vertical"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/friend_button"
+        android:fontFamily="sans-serif"
+        android:text="@string/myfriend_headerText"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_title" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

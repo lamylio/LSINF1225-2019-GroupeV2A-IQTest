@@ -48,7 +48,7 @@
     <string name="profile_continue">REPRENDRE</string>
     <string name="profile_history">Historique</string>
     <string name="profile_settings">Paramètres</string>
-    <string name="profile_addFriend">Ajouter un ami</string>
+    <string name="onClickMyFriendButton">Mes amis</string>onClickMyFriendButton
 
     <!-- ChooseMode -->
     <string name="mode">Mode</string>
@@ -95,8 +95,12 @@
     <string name="game_start">C\'est parti !</string>
 
     <!-- addFriendActivity -->
-    <string name="friend_pseudoText">Entrez le pseudo de votre ami</string>
-    <string name="friend_buttonText">Ajouter</string>
-    <string name="friend_headerText">Ajouter un ami</string>
+    <string name="addfriend_pseudoText">Entrez le pseudo de votre ami</string>
+    <string name="addfriend_buttonText">Ajouter</string>
+    <string name="addfriend_addheaderText">Ajouter un ami</string>
+
+    <!-- myFriendsActivity -->
+    <string name="myfriend_headerText">Mes amis</string>
+    <string name="myfriend_addFriend">Ajouter un ami</string>
 
 </resources>
