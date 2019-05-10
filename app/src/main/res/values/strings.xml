@@ -73,6 +73,7 @@
     <!-- SettingsActivity -->
     <string name="settings_volume">Volume</string>
     <string name="settings">Paramètres</string>
+    <string name="settings_mdp">Changer le mot de passe</string>
 
     <!-- GameActivity -->
     <string name="Suivant">Suivant</string>
