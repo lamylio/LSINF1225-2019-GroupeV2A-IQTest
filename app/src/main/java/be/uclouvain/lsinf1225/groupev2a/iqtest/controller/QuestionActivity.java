@@ -117,12 +117,10 @@ public class QuestionActivity extends AppCompatActivity {
     private void showEndingResults(){
         /* TODO */
         setContentView(R.layout.activity_showresults);
-        score = findViewById(R.id.results_score);
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-
                 Answer[] answers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromGame(GameActivity.game.getGame_id());
                 if(answers == null) throw new Error("Erreur récupération des answers d'une game");
                 int i = 0;
@@ -134,8 +132,6 @@ public class QuestionActivity extends AppCompatActivity {
 
                 score = findViewById(R.id.results_score);
                 score.setText("Vous avez " + i + " bonne(s) réponse(s) sur " + answers.length + " questions");
-                score.refreshDrawableState();
-
 
             }
         }).start();
