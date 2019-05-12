@@ -3,10 +3,8 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.database.room.table;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
-// Je ne sais pas ce qu'il se passe au niveau de ces fichiers.
-// ils sont dans Database avec une majuscule mmh
 
-@Entity(tableName = "FRIENDS", primaryKeys = {"user1, user2"})
+@Entity(tableName = "FRIENDS", primaryKeys = {"user1", "user2"})
 public class Friend {
 
     @NonNull
