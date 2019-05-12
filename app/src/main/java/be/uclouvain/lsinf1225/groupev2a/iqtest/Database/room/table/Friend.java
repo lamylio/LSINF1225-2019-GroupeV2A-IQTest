@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 
-@Entity(tableName = "FRIENDS", primaryKeys = {"user1"})
+@Entity(tableName = "FRIENDS", primaryKeys = {"user1, user2"})
 public class Friend {
 
     @NonNull
