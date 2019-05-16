@@ -17,10 +17,16 @@ public interface UserDao {
     @Query("SELECT * FROM USERS WHERE 1")
     List<User> getAllUsers();
 
+    @Query("SELECT username FROM USERS WHERE 1")
+    String[] getAllUsernames();
+
     @Insert
     void registerUser(User user);
 
     @Query("UPDATE USERS SET password = :hashed_password WHERE username = :username")
     void updatePassword(String username, String hashed_password);
+
+
+
 }
 

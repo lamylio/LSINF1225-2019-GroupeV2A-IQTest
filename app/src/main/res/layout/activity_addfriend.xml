@@ -12,19 +12,16 @@ android:id="@+id/activity_addfriend">
         android:layout_width="123dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="224dp"
         android:background="@drawable/whiteborder"
         android:clickable="true"
         android:onClick="addNewFriend"
         android:text="@string/addfriend_buttonText"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintTop_toBottomOf="@+id/friend_autocomplete" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -89,34 +86,29 @@ android:id="@+id/activity_addfriend">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="408dp"
         android:gravity="center"
         android:text="@string/addfriend_pseudoText"
         android:textColor="@android:color/white"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mode_title"
-        app:layout_constraintVertical_bias="0.815" />
+        app:layout_constraintTop_toBottomOf="@+id/addfriend_title" />
 
-    <EditText
-        android:id="@+id/friend_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <AutoCompleteTextView
+        android:id="@+id/friend_autocomplete"
+        android:layout_width="195dp"
+        android:layout_height="20dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/white"
-        android:ems="10"
-        android:gravity="center_horizontal|center_vertical"
-        android:inputType="textPersonName"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changemdp_subtitle1" />
+        app:layout_constraintTop_toBottomOf="@+id/addfriend_setText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

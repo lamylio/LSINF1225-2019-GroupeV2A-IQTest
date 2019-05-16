@@ -2,11 +2,14 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -29,6 +32,9 @@ public class UserActivity extends AppCompatActivity {
     boolean pressed = false;
     protected static Result[] unfinished_results = null;
 
+    protected static String[] allUsernames = new String[0];
+
+    
     TextView text_username;
     TextView text_remaining;
     Button button_play;
@@ -52,6 +58,12 @@ public class UserActivity extends AppCompatActivity {
             return;
         }
         updateUI();
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                allUsernames = DatabaseHelper.INSTANCE.userDao().getAllUsernames();
+            }
+        });
     }
 
     private Activity getActivity(){return this;}
@@ -115,6 +127,9 @@ public class UserActivity extends AppCompatActivity {
 
     public void onClickAddFriend(View view){
         setContentView(R.layout.activity_addfriend);
+        AutoCompleteTextView editText = findViewById(R.id.friend_autocomplete);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, allUsernames);
+        editText.setAdapter(adapter);
     }
 
     Friend[] friends;
@@ -175,7 +190,7 @@ public class UserActivity extends AppCompatActivity {
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                TextView friendName = findViewById(R.id.friend_username);
+                AutoCompleteTextView friendName = findViewById(R.id.friend_autocomplete);
                 User target = DatabaseHelper.INSTANCE.userDao().findByName(friendName.getText().toString());
                 /* On vérifie que le joueur cible existe */
                 if (target != null) {
