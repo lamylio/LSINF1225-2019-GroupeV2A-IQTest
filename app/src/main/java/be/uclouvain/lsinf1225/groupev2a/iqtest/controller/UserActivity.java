@@ -81,8 +81,8 @@ public class UserActivity extends AppCompatActivity {
                         text_remaining.setText(games.length + (games.length > 1 ? " parties" : " partie"));
 
                         if(unfinished_results != null && unfinished_results.length > 0){
-                            button_play.setText(getText(R.string.profile_continue));
                             text_remaining.setText("Il vous reste " + unfinished_results.length + (unfinished_results.length > 1 ? " questions" : " question"));
+                            button_play.setText(getText(R.string.profile_continue));
                         }
                     }
                 });
