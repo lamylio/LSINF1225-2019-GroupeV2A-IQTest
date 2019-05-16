@@ -177,9 +177,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:text="TextView"
+        android:text="@string/login_button"
+        android:textColor="@android:color/white"
         android:textAlignment="center"
-        android:textColor="#FCFCFC"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -187,5 +187,20 @@
         app:layout_constraintTop_toTopOf="@+id/changemdp_actuel"
         app:layout_constraintVertical_bias="0.456"
         tools:text="Confirmer le nouveau mot de passe" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/whiteborder"
+        android:text="@string/confirm_mdp"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changemdp_confirm" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
