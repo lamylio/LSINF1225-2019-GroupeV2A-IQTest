@@ -20,4 +20,5 @@ public interface ResultDao {
 
     @Query("UPDATE RESULTS SET ans_id = :ans_id WHERE game_id = :game_id AND quest_id = :quest_id")
     void updateResult(int game_id, int quest_id, int ans_id);
+
 }
