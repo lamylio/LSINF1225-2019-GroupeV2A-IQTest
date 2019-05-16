@@ -37,7 +37,7 @@ public class SettingsActivity extends Activity {
     }
 
     protected void onClickChangePassword(View view){
-
+        setContentView(R.layout.activity_changemdp);
     }
 
     private void initControls() {
