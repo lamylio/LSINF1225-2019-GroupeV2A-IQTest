@@ -121,21 +121,18 @@ public class QuestionActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Answer[] answers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromGame(GameActivity.game.getGame_id());
+                answers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromGame(GameActivity.game.getGame_id());
                 if(answers == null) throw new Error("Erreur récupération des answers d'une game");
-                int i = 0;
-
-                for(Answer ans : answers){
-                    if(ans.isCorrect()) i++;
-
-                }
-
-                score = findViewById(R.id.results_score);
-                score.setText("Vous avez " + i + " bonne(s) réponse(s) sur " + answers.length + " questions");
-
             }
         }).start();
+        int i = 0;
 
+        for(Answer ans : answers){
+            if(ans.isCorrect()) i++;
+
+        }
+        score = findViewById(R.id.results_score);
+        score.setText("Vous avez " + i + " bonne(s) réponse(s) sur " + answers.length + " questions");
         return;
     }
 
