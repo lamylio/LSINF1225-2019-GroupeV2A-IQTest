@@ -2,6 +2,7 @@ package be.uclouvain.lsinf1225.groupev2a.iqtest.controller;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -121,20 +122,27 @@ public class QuestionActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
+
                 final Answer[] gameAnswers = DatabaseHelper.INSTANCE.answerDao().getAnswersFromGame(GameActivity.game.getGame_id());
                 if(gameAnswers == null) throw new Error("Erreur récupération des answers d'une game");
 
                 int i = 0;
+                String textResult = "";
                 for(Answer ans : gameAnswers){
                     if(ans.isCorrect()) i++;
-                    Utils.sendLog(this.getClass(), ans.getAnswer() + ans.isCorrect());
+                    Utils.sendLog(this.getClass(), ans.getAnswer() + " : " + ans.getQuest_id());
+                    if(GameActivity.game.getType().equalsIgnoreCase("speed")){
+                        Question quest = DatabaseHelper.INSTANCE.questDao().getQuestionFromID(ans.getQuest_id());
+                        textResult += Html.fromHtml(quest.getStatement() + " : " + ans.getAnswer() + " <b>(" + (ans.isCorrect() ?  "✓" : "✕") + ")</b> <br/><br/>");
+                    }
                 }
-                final int playerscore = i;
+                textResult += Html.fromHtml("<b> Ce qui donne un résultat de "+ i + " bonne(s) réponse(s)</b>");
+                final String output = textResult;
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         score = findViewById(R.id.results_score);
-                        score.setText("Vous avez " + playerscore + " bonne(s) réponse(s) sur " + gameAnswers.length + " questions");
+                        score.setText(output);
                     }
                 });
             }

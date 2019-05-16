@@ -57,26 +57,34 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
         android:src="@drawable/iq_distribution_curve"
-        app:layout_constraintBottom_toTopOf="@+id/results_score"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@drawable/iq_distribution_curve" />
 
-    <TextView
-        android:id="@+id/results_score"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="50dp"
-        android:freezesText="false"
-        android:text="score"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <TextView
+            android:id="@+id/results_score"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:freezesText="false"
+            android:textAlignment="viewStart"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="48dp" />
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

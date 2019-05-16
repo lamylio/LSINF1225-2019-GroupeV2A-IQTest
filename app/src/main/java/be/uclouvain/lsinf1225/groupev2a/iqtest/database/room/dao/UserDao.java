@@ -17,8 +17,8 @@ public interface UserDao {
     @Query("SELECT * FROM USERS WHERE 1")
     List<User> getAllUsers();
 
-    @Query("SELECT username FROM USERS WHERE 1")
-    String[] getAllUsernames();
+    @Query("SELECT username FROM USERS WHERE username != :username AND username != 'admin'")
+    String[] getAllUsernamesExceptLogged(String username);
 
     @Insert
     void registerUser(User user);

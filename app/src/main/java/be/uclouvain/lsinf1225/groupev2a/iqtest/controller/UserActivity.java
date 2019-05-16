@@ -61,7 +61,7 @@ public class UserActivity extends AppCompatActivity {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                allUsernames = DatabaseHelper.INSTANCE.userDao().getAllUsernames();
+                allUsernames = DatabaseHelper.INSTANCE.userDao().getAllUsernamesExceptLogged(User.loggedUser.getUsername());
             }
         });
     }
@@ -130,6 +130,7 @@ public class UserActivity extends AppCompatActivity {
         AutoCompleteTextView editText = findViewById(R.id.friend_autocomplete);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, allUsernames);
         editText.setAdapter(adapter);
+        editText.showDropDown();
     }
 
     Friend[] friends;

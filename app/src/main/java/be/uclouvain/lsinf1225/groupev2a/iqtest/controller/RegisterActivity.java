@@ -53,8 +53,6 @@ public class RegisterActivity extends AppCompatActivity {
                         DatabaseHelper.INSTANCE.userDao().registerUser(check);
 
                         Utils.toast = getResources().getText(R.string.REGISTER_SUCCESS).toString();
-                        Utils.sendLog(this.getClass(), "User " + check.getUsername() + " created");
-
                         User.loggedUser = check;
                         Utils.changeActivity(getApplicationContext(), UserActivity.class);
                         finish();
