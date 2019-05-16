@@ -117,6 +117,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     private void showEndingResults(){
         /* TODO */
+        timer.cancel();
         setContentView(R.layout.activity_showresults);
 
         new Thread(new Runnable() {
@@ -136,7 +137,7 @@ public class QuestionActivity extends AppCompatActivity {
                         textResult += Html.fromHtml(quest.getStatement() + " : " + ans.getAnswer() + " <b>(" + (ans.isCorrect() ?  "✓" : "✕") + ")</b> <br/><br/>");
                     }
                 }
-                textResult += Html.fromHtml("<b> Ce qui donne un résultat de "+ i + " bonne(s) réponse(s)</b>");
+                textResult += Html.fromHtml("<center><b> Ce qui donne un résultat de "+ i + " bonne(s) réponse(s)</b></center>");
                 final String output = textResult;
                 runOnUiThread(new Runnable() {
                     @Override
