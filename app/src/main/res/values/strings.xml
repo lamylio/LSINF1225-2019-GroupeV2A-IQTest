@@ -116,5 +116,9 @@
     <string name="myfriend_headerText">Mes amis</string>
     <string name="myfriend_addFriend">Ajouter un ami</string>
 
+    <string name="password_actual">Mot de passe actuel</string>
+    <string name="password_new">Introduire le nouveau mot de passe</string>
+    <string name="password_repeat">Confirmer le nouveau mot de passe</string>
+
 
 </resources>
