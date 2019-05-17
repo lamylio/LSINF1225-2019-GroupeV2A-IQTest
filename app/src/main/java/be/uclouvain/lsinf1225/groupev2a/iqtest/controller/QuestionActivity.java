@@ -132,10 +132,10 @@ public class QuestionActivity extends AppCompatActivity {
                 for(Answer ans : gameAnswers){
                     if(ans.isCorrect()) i++;
                     Utils.sendLog(this.getClass(), ans.getAnswer() + " : " + ans.getQuest_id());
-                    if(GameActivity.game.getType().equalsIgnoreCase("speed")){
-                        Question quest = DatabaseHelper.INSTANCE.questDao().getQuestionFromID(ans.getQuest_id());
-                        textResult += Html.fromHtml(quest.getStatement() + " : " + ans.getAnswer() + " <b>(" + (ans.isCorrect() ?  "✓" : "✕") + ")</b> <br/><br/>");
-                    }
+
+                    Question quest = DatabaseHelper.INSTANCE.questDao().getQuestionFromID(ans.getQuest_id());
+                    textResult += Html.fromHtml(quest.getStatement() + " : " + ans.getAnswer() + " <b>(" + (ans.isCorrect() ?  "✓" : "✕") + ")</b> <br/><br/>");
+
                 }
                 textResult += Html.fromHtml("<center><b> Ce qui donne un résultat de "+ i + " bonne(s) réponse(s)</b></center>");
                 final String output = textResult;
